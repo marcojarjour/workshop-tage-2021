@@ -9,6 +9,8 @@ resources:
   - service.yaml
   - svc-monitor.yaml
 
+generatorOptions:
+  disableNameSuffixHash: true
 configMapGenerator:
   - name: grafana-datasources
     files:
@@ -17,10 +19,5 @@ configMapGenerator:
     files:
       - dashboards.yaml
 
-generatorOptions:
-  disableNameSuffixHash: true
-
 commonLabels:
   component: grafana
-
-# WARN: remember to keep dashboard/kustomization.yaml aligned with all changes made in this file

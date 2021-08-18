@@ -4,10 +4,6 @@ kind: Kustomization
 
 resources:
   - jaeger-all-in-one.yaml
-  # - tempo-operational.yaml
-  # - tempo-reads.yaml
-  # - tempo-resources.yaml
-  # - tempo-writes.yaml
 
 commonLabels:
-  grafanaFolder: tracing
+  folder: tracing

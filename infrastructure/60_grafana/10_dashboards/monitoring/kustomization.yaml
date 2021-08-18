@@ -4,8 +4,8 @@ kind: Kustomization
 
 resources:
   - grafana.yaml
-  # - node-exporter.yaml
   - prometheus.yaml
+  # - node-exporter.yaml # too big, must be imported manually
 
 commonLabels:
-  grafanaFolder: monitoring
+  folder: monitoring

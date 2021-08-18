@@ -53,13 +53,3 @@ datasources:
         datasourceUid: loki
         tags:
           - app
-
-  # - name: tempo
-  #   uid: tempo
-  #   type: tempo
-  #   orgId: 1
-  #   url: $TEMPO_URL
-  #   access: proxy
-  #   isDefault: false
-  #   version: 1
-  #   editable: true

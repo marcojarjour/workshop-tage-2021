@@ -5,15 +5,15 @@ kind: Kustomization
 namespace: tracing
 
 resources:
-  - jaeger_all-in-one.yaml
-  # - jaeger_simple.yaml
-  # - no-headless-service.yaml
+  - jaeger.yaml
+  - service.yaml
+  - svc-monitor.yaml
 
-commonLabels:
-  app: jaeger
-  domain: tracing
-  feature: jaeger
-  component: jaeger
+# WARN: replaced by transformer "kustomization_label-transformer.yaml"
+# commonLabels:
+
+transformers:
+  - kustomization_label-transformer.yaml
 
 commonAnnotations:
   version: "1.21.0"

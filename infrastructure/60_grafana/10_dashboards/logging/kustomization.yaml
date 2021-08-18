@@ -9,8 +9,7 @@ resources:
   - loki-quick-search.yaml
   - loki-reads.yaml
   - loki-writes.yaml
-  # - promtail.yaml
   # - vector.yaml
 
 commonLabels:
-  grafanaFolder: logging
+  folder: logging

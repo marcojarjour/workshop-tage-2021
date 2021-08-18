@@ -21,7 +21,6 @@ spec:
       containers:
         - name: vector
           image: timberio/vector:0.11.1-debian@sha256:765c5317ce36f9752f6867eedea37ff01a75f056d89484824988352e3b93d677
-          # image: timberio/vector:0.11.1-alpine@sha256:caec33e11660ef8411e4cbfd5f695e44c716c958a9c5ceb247d71768527239c4
           imagePullPolicy: IfNotPresent
 
           args:

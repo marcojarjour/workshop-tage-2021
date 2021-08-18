@@ -10,6 +10,8 @@ resources:
   - service.yaml
   - svc-monitor.yaml
 
+generatorOptions:
+  disableNameSuffixHash: true
 configMapGenerator:
   - name: vector-agent-managed
     files:
@@ -17,10 +19,6 @@ configMapGenerator:
   - name: vector-agent-config
     files:
       - vector-agent.toml
-
-generatorOptions:
-  # Avoid a suffix at the `ConfigMap` name
-  disableNameSuffixHash: true
 
 commonLabels:
   app: vector-agent

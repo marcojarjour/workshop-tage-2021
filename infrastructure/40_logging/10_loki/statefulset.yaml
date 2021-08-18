@@ -2,8 +2,6 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: loki
-  annotations:
-    reloader.stakater.com/auto: "true"
 spec:
   replicas: 1
   serviceName: loki-headless
@@ -18,12 +16,17 @@ spec:
       labels:
         app: loki
     spec:
+      serviceAccountName: loki
       terminationGracePeriodSeconds: 4800
+
+      securityContext:
+        runAsUser: 1001
+        runAsGroup: 1001
+        fsGroup: 1001
 
       containers:
         - name: loki
-          # latest 6.1.2021
-          image: grafana/loki:latest@sha256:db10e6895b18e5703c1c2df093c9fec9b5f327438b34b5cd34eaeb5d7a25c53f
+          image: grafana/loki:2.2.0@sha256:2bca096f7744b7776577f701fab87079dabe9889b93ad2432e82779e5af032ef
           imagePullPolicy: IfNotPresent
 
           args:
@@ -37,9 +40,9 @@ spec:
           resources:
             requests:
               cpu: 500m
-              memory: 1Gi
+              memory: 512Mi
             limits:
-              cpu: 500m
+              cpu: 1
               memory: 1Gi
 
           livenessProbe:
@@ -76,37 +79,31 @@ spec:
           secret:
             secretName: loki
 
+      nodeSelector:
+        kubernetes.io/os: linux
+
   volumeClaimTemplates:
     - metadata:
         name: index
-        labels:
-          type: ssd
-          expandable: "true"
       spec:
         accessModes:
           - ReadWriteOnce
         resources:
           requests:
-            storage: 500M
+            storage: 1G
     - metadata:
         name: chunks
-        labels:
-          type: ssd
-          expandable: "true"
       spec:
         accessModes:
           - ReadWriteOnce
         resources:
           requests:
-            storage: 2G
+            storage: 3G
     - metadata:
         name: wal
-        labels:
-          type: ssd
-          expandable: "true"
       spec:
         accessModes:
           - ReadWriteOnce
         resources:
           requests:
-            storage: 500M
+            storage: 1G

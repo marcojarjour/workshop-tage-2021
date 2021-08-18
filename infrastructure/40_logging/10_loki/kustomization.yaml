@@ -5,6 +5,7 @@ kind: Kustomization
 namespace: logging
 
 resources:
+  - rbac.yaml
   - secret.yaml
   - statefulset.yaml
   - service.yaml
@@ -16,4 +17,4 @@ commonLabels:
   group: loki
 
 commonAnnotations:
-  version: "2.1.0"
+  version: "2.2.0"

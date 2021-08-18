@@ -1,9 +1,8 @@
 apiVersion: monitoring.coreos.com/v1
 kind: Prometheus
 metadata:
-  name: prod
+  name: main
 spec:
-  # v2.23.0
   image: quay.io/prometheus/prometheus:v2.23.0@sha256:0eac377a90d361be9da35b469def699bcd5bb26eab8a6e9068516a9910717d58
   replicas: 1
 
@@ -83,4 +82,4 @@ spec:
           - ReadWriteOnce
         resources:
           requests:
-            storage: 1G
+            storage: 2G

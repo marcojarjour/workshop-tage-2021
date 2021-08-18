@@ -15,8 +15,6 @@ spec:
         app: kube-state-metrics
     spec:
       serviceAccountName: kube-state-metrics
-      securityContext:
-        runAsUser: 1001
       containers:
         - name: kube-state-metrics
           # v1.9.7
@@ -40,6 +38,8 @@ spec:
           # MISSING
           # liveness
           # readiness
+          securityContext:
+            runAsUser: 1001
         - name: kube-rbac-proxy-main
           # v0.8.0
           image: quay.io/brancz/kube-rbac-proxy:v0.8.0@sha256:f5a13092303d1888a1b05b24a8ec15059561c266dd2b35a0be1e92e4d39ac926
