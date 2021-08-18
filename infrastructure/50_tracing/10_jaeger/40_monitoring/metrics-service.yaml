@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: jaeger-metrics
+  labels:
+    app: jaeger
+    domain: tracing
+    component: monitoring
+spec:
+  selector:
+    app: jaeger
+    domain: tracing
+    feature: jaeger
+    # app.kubernetes.io/component: jaeger
+    # app.kubernetes.io/instance: jaeger
+    # app.kubernetes.io/managed-by: jaeger-operator
+    # app.kubernetes.io/name: jaeger
+    # app.kubernetes.io/part-of: jaeger
+  ports:
+    - name: admin-http
+      port: 14269
+      targetPort: admin-http

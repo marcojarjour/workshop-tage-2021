@@ -1,0 +1,23 @@
+
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: monitoring
+
+resources:
+  - serviceAccount.yaml
+  - clusterRole.yaml
+  - clusterRoleBinding.yaml
+  - role.yaml
+  - roleBinding.yaml
+  - prometheus.yaml
+  - service.yaml
+  - serviceMonitor.yaml
+
+commonLabels:
+  app: prometheus
+  domain: monitoring
+  feature: prometheus
+
+commonAnnotations:
+  version: v2.23.0
