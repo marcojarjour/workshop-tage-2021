@@ -10,9 +10,7 @@
 
 # ACTIONS
 
-## build
-
-build-all-apps :		## Build all applications
+build-all :		## Build all applications
 	cd standalone/ && make build
 	cd http-client/ && make build
 	cd http-server/ && make build
@@ -22,30 +20,19 @@ build-all-apps :		## Build all applications
 	cd kafka-consumer/ && make build
 	cd kafka-producer/ && make build
 
-__check-container-tag-all-apps :
+__check-container-tag-all :
 	@[ "$(CONTAINER_TAG)" ] || ( echo "Missing container tag (CONTAINER_TAG), please define it and retry"; exit 1 )
 
-## container
+container-build-push-all : __check-container-tag-all		## Build and push ontainers of all applications
+	cd standalone/ && make container-build container-push CONTAINER_TAG=$(CONTAINER_TAG)
+	cd http-client/ && make container-build container-push CONTAINER_TAG=$(CONTAINER_TAG)
+	cd http-server/ && make container-build container-push CONTAINER_TAG=$(CONTAINER_TAG)
+	cd http-server-db/ && make container-build container-push CONTAINER_TAG=$(CONTAINER_TAG)
+	cd grpc-client/ && make container-build container-push CONTAINER_TAG=$(CONTAINER_TAG)
+	cd grpc-server/ && make container-build container-push CONTAINER_TAG=$(CONTAINER_TAG)
+	cd kafka-consumer/ && make container-build container-push CONTAINER_TAG=$(CONTAINER_TAG)
+	cd kafka-producer/ && make container-build container-push CONTAINER_TAG=$(CONTAINER_TAG)
 
-container-build-all-apps : build-all-apps __check-container-tag-all-apps		## Build containers of all applications
-	cd standalone/ && make container-build CONTAINER_TAG=$(CONTAINER_TAG)
-	cd http-client/ && make container-build CONTAINER_TAG=$(CONTAINER_TAG)
-	cd http-server/ && make container-build CONTAINER_TAG=$(CONTAINER_TAG)
-	cd http-server-db/ && make container-build CONTAINER_TAG=$(CONTAINER_TAG)
-	cd grpc-client/ && make container-build CONTAINER_TAG=$(CONTAINER_TAG)
-	cd grpc-server/ && make container-build CONTAINER_TAG=$(CONTAINER_TAG)
-	cd kafka-consumer/ && make container-build CONTAINER_TAG=$(CONTAINER_TAG)
-	cd kafka-producer/ && make container-build CONTAINER_TAG=$(CONTAINER_TAG)
-
-container-push-all-apps : container-build-all-apps __check-container-tag-all-apps		## Push containers of all applications to Docker hub
-	cd standalone/ && make container-push CONTAINER_TAG=$(CONTAINER_TAG)
-	cd http-client/ && make container-push CONTAINER_TAG=$(CONTAINER_TAG)
-	cd http-server/ && make container-push CONTAINER_TAG=$(CONTAINER_TAG)
-	cd http-server-db/ && make container-push CONTAINER_TAG=$(CONTAINER_TAG)
-	cd grpc-client/ && make container-push CONTAINER_TAG=$(CONTAINER_TAG)
-	cd grpc-server/ && make container-push CONTAINER_TAG=$(CONTAINER_TAG)
-	cd kafka-consumer/ && make container-push CONTAINER_TAG=$(CONTAINER_TAG)
-	cd kafka-producer/ && make container-push CONTAINER_TAG=$(CONTAINER_TAG)
 
 ## helpers
 

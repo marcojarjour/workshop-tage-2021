@@ -13,7 +13,10 @@ export GO111MODULE = on
 ## application
 
 build :		## Build application
-	go build
+	go build ./...
+
+build-linux :		## Build application for linux
+	CGO_ENABLED=1 GOOS=linux GOARCH=amd64 go build -tags netgo -o /bin/app -ldflags "-w -s"
 
 run :		## Run application
 	godotenv -f local.env go run main.go
@@ -25,22 +28,13 @@ __check-container-tag :
 	@[ "$(CONTAINER_TAG)" ] || ( echo "Missing container tag (CONTAINER_TAG), please define it and retry"; exit 1 )
 
 container-build : __check-container-tag		## Build container
-	docker build . -t bygui86/kafka-producer:$(CONTAINER_TAG) --no-cache
+	DOCKER_BUILDKIT=0 docker build . -t bygui86/kafka-producer:$(CONTAINER_TAG) --no-cache
+
+container-build-with-buildkit : __check-container-tag		## Build container
+	DOCKER_BUILDKIT=1 docker build . -t bygui86/kafka-producer:$(CONTAINER_TAG) --no-cache
 
 container-push : __check-container-tag		## Push container to Docker hub
 	docker push bygui86/kafka-producer:$(CONTAINER_TAG)
-
-
-## kubernetes
-
-deploy :		## Deploy on Kubernetes
-	kustomize build kube/ | kubectl apply -f -
-
-delete :		## Delete from Kubernetes
-	kustomize build kube/ | kubectl delete -f -
-
-logs :		## Show logs from Kubernetes pod
-	kubectl logs -l app=kafka-producer -n apps --tail 10000 -f
 
 
 ## helpers

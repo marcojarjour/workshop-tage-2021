@@ -13,7 +13,10 @@ export GO111MODULE = on
 ## application
 
 build :		## Build application
-	go build
+	go build ./...
+
+build-linux :		## Build application for linux
+	CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o /bin/app
 
 run :		## Run application
 	godotenv -f local.env go run main.go
@@ -29,18 +32,6 @@ container-build : __check-container-tag		## Build container
 
 container-push : __check-container-tag		## Push container to Docker hub
 	docker push bygui86/grpc-server:$(CONTAINER_TAG)
-
-
-## kubernetes
-
-deploy :		## Deploy on Kubernetes
-	kustomize build kube/ | kubectl apply -f -
-
-delete :		## Delete from Kubernetes
-	kustomize build kube/ | kubectl delete -f -
-
-logs :		## Show logs from Kubernetes pod
-	kubectl logs -l app=grpc-server -n apps --tail 10000 -f
 
 
 ## helpers
