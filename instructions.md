@@ -78,26 +78,17 @@ kubectl port-forward svc/jaeger-query 16686 -n tracing
 
 kustomize build 100_applications/10_standalone/ | kubectl apply -f -
 
-### HTTP `NOT WORKING AS EXPECTED`
-
-kustomize build 100_applications/20_http/http-client/ | kubectl apply -f - && \
-kustomize build 100_applications/20_http/http-server/ | kubectl apply -f -
-
-kubectl port-forward svc/http-client 8080 -n apps
-
-`MANUAL` make some requests using Postman
-
 ### gRPC
 
-kustomize build 100_applications/30_grpc/grpc-client/ | kubectl apply -f - && \
-kustomize build 100_applications/30_grpc/grpc-server/ | kubectl apply -f -
+kustomize build 100_applications/20_grpc/grpc-client/ | kubectl apply -f - && \
+kustomize build 100_applications/20_grpc/grpc-server/ | kubectl apply -f -
 
-### HTTP with DB backbone
+### HTTP
 
 kustomize build 70_databases/postgresql/ | kubectl apply -f -
 
-kustomize build 100_applications/21_http-db/http-client-db/ | kubectl apply -f - && \
-kustomize build 100_applications/21_http-db/http-server-db/ | kubectl apply -f -
+kustomize build 100_applications/30_http/http-client-db/ | kubectl apply -f - && \
+kustomize build 100_applications/30_http/http-server-db/ | kubectl apply -f -
 
 kubectl port-forward svc/http-client-db 8080 -n apps
 
@@ -120,14 +111,11 @@ kustomize build 100_applications/40_broker/kafka-producer/ | kubectl apply -f -
 
 kustomize build 100_applications/10_standalone/ | kubectl delete -f - && \
 
-kustomize build 100_applications/20_http/http-client/ | kubectl delete -f - && \
-kustomize build 100_applications/20_http/http-server/ | kubectl delete -f - && \
+kustomize build 100_applications/20_grpc/grpc-client/ | kubectl delete -f - && \
+kustomize build 100_applications/20_grpc/grpc-server/ | kubectl delete -f - && \
 
-kustomize build 100_applications/30_grpc/grpc-client/ | kubectl delete -f - && \
-kustomize build 100_applications/30_grpc/grpc-server/ | kubectl delete -f - && \
-
-kustomize build 100_applications/21_http-db/http-client-db/ | kubectl delete -f - && \
-kustomize build 100_applications/21_http-db/http-server-db/ | kubectl delete -f - && \
+kustomize build 100_applications/30_http/http-client-db/ | kubectl delete -f - && \
+kustomize build 100_applications/30_http/http-server-db/ | kubectl delete -f - && \
 kustomize build 70_databases/postgresql/ | kubectl delete -f -
 
 kustomize build 100_applications/40_broker/kafka-consumer/ | kubectl delete -f - && \

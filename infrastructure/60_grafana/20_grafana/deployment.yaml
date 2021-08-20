@@ -202,7 +202,7 @@ spec:
               name: grafana-dashboard-strimzi-zookeeper
             
             ### databases
-            - mountPath: /etc/dashboards/services/postgresql.json
+            - mountPath: /etc/dashboards/databases/postgresql.json
               subPath: postgresql.json
               name: grafana-dashboard-postgresql
 
@@ -213,9 +213,6 @@ spec:
             - mountPath: /etc/dashboards/services/global-status.json
               subPath: global-status.json
               name: grafana-dashboard-global-status
-            - mountPath: /etc/dashboards/services/throttling.json
-              subPath: throttling.json
-              name: grafana-dashboard-throttling
 
       volumes:
         # storage
@@ -374,6 +371,3 @@ spec:
         - configMap:
             name: grafana-dashboard-global-status
           name: grafana-dashboard-global-status
-        - configMap:
-            name: grafana-dashboard-throttling
-          name: grafana-dashboard-throttling

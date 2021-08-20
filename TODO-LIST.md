@@ -11,11 +11,13 @@
 
 - [x] test kafka
 
+- [x] import dashboards
+	- [x] strimzi
+	- [x] postgresql
+
 - [ ] introduce argocd
 
-- [ ] import dashboards
-	- [ ] strimzi
-	- [ ] postgresql
+- [ ] fix postgresql grafana dashboard
 
 ### Best effort
 
@@ -34,6 +36,7 @@
 	- [ ] loki
 	- [ ] vector
 	- [ ] jaeger
+	- [ ] strimzi
 
 ## Applications
 
@@ -42,8 +45,6 @@
 - [x] test http-db apps
 
 - [x] test kafka apps
-
-- [ ] fix http-client error `"error": "Get products failed: json: cannot unmarshal string into Go struct field Product.id of type int"`
 
 ### Best effort
 
