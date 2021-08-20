@@ -15,7 +15,10 @@
 	- [x] strimzi
 	- [x] postgresql
 
-- [ ] introduce argocd
+- [ ] introduce gitops `WIP`
+	- [ ] argocd
+	- [ ] argocd apps
+	- [ ] kustomize in all folders
 
 - [ ] fix postgresql grafana dashboard
 
@@ -24,7 +27,6 @@
 - [ ] create simple dashboards for custom apps
 	- [ ] standadlone
 	- [ ] http
-	- [ ] http-db
 	- [ ] grpc
 	- [ ] kafka
 
@@ -53,6 +55,5 @@
 - [ ] check kubernetes probes
 	- [ ] standadlone
 	- [ ] http
-	- [ ] http-db
 	- [ ] grpc
 	- [ ] kafka

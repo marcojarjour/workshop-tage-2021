@@ -1,0 +1,31 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: grafana
+  labels:
+    feature: grafana
+  annotations:
+    argocd.argoproj.io/sync-wave: "4"
+spec:
+  project: in-cluster
+  source:
+    repoURL: https://github.com/bygui86/workshop-tage-2021
+    targetRevision: master
+    path: infrastructure/60_grafana
+  destination:
+    name: in-cluster
+    namespace: monitoring
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - ApplyOutOfSyncOnly=true
+      - PrunePropagationPolicy=background
+    retry:
+      limit: 10
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 5m

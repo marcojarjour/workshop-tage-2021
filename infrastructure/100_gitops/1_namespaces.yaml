@@ -1,0 +1,32 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: namespaces
+  labels:
+    group: apps
+    feature: namespaces
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+spec:
+  project: in-cluster
+  source:
+    repoURL: https://github.com/bygui86/workshop-tage-2021
+    targetRevision: master
+    path: infrastructure/20_namespaces
+  destination:
+    name: in-cluster
+    namespace: argocd
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - ApplyOutOfSyncOnly=true
+      - PrunePropagationPolicy=foreground
+    retry:
+      limit: 5
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 5m

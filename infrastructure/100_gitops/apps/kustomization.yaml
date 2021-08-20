@@ -1,0 +1,15 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: argocd
+
+resources:
+  # using ArgoCD sync-wave feature to deploy in this exact order
+  - standalone.yaml
+  - grpc.yaml
+  - http.yaml
+  - broker.yaml
+
+commonLabels:
+  domain: apps
+  group: apps

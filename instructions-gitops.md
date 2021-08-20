@@ -33,11 +33,11 @@ make start-virtualbox-minikube (slower in provisioning and container image downl
 
 cd infrastructure/
 
-### 1. Namespaces
+### 1. GitOps
 
-kustomize build 10_namespaces/ | kubectl apply -f -
+kustomize build 10_devops/10_argocd/ | kubectl apply -f -
 
-### 2. GitOps
+### 2. Namespaces
 
 
 ---

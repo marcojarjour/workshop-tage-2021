@@ -35,7 +35,7 @@ cd infrastructure/
 
 ### 1. Namespaces
 
-kustomize build 10_namespaces/ | kubectl apply -f -
+kustomize build 20_namespaces/ | kubectl apply -f -
 
 ### 2. Monitoring
 
@@ -76,19 +76,19 @@ kubectl port-forward svc/jaeger-query 16686 -n tracing
 
 ### Standalone
 
-kustomize build 100_applications/10_standalone/ | kubectl apply -f -
+kustomize build 90_apps/10_standalone/ | kubectl apply -f -
 
 ### gRPC
 
-kustomize build 100_applications/20_grpc/grpc-client/ | kubectl apply -f - && \
-kustomize build 100_applications/20_grpc/grpc-server/ | kubectl apply -f -
+kustomize build 90_apps/20_grpc/grpc-client/ | kubectl apply -f - && \
+kustomize build 90_apps/20_grpc/grpc-server/ | kubectl apply -f -
 
 ### HTTP
 
 kustomize build 70_databases/postgresql/ | kubectl apply -f -
 
-kustomize build 100_applications/30_http/http-client-db/ | kubectl apply -f - && \
-kustomize build 100_applications/30_http/http-server-db/ | kubectl apply -f -
+kustomize build 90_apps/30_http/http-client-db/ | kubectl apply -f - && \
+kustomize build 90_apps/30_http/http-server-db/ | kubectl apply -f -
 
 kubectl port-forward svc/http-client-db 8080 -n apps
 
@@ -104,22 +104,22 @@ kustomize build 80_brokers/kafka/30_kafka/ | kubectl apply -f - && \
 kustomize build 80_brokers/kafka/40_topics/ | kubectl apply -f - && \
 kustomize build 80_brokers/kafka/50_monitoring/ | kubectl apply -f -
 
-kustomize build 100_applications/40_broker/kafka-consumer/ | kubectl apply -f - && \
-kustomize build 100_applications/40_broker/kafka-producer/ | kubectl apply -f -
+kustomize build 90_apps/40_broker/kafka-consumer/ | kubectl apply -f - && \
+kustomize build 90_apps/40_broker/kafka-producer/ | kubectl apply -f -
 
 ### Cleanup
 
-kustomize build 100_applications/10_standalone/ | kubectl delete -f - && \
+kustomize build 90_apps/10_standalone/ | kubectl delete -f - && \
 
-kustomize build 100_applications/20_grpc/grpc-client/ | kubectl delete -f - && \
-kustomize build 100_applications/20_grpc/grpc-server/ | kubectl delete -f - && \
+kustomize build 90_apps/20_grpc/grpc-client/ | kubectl delete -f - && \
+kustomize build 90_apps/20_grpc/grpc-server/ | kubectl delete -f - && \
 
-kustomize build 100_applications/30_http/http-client-db/ | kubectl delete -f - && \
-kustomize build 100_applications/30_http/http-server-db/ | kubectl delete -f - && \
+kustomize build 90_apps/30_http/http-client-db/ | kubectl delete -f - && \
+kustomize build 90_apps/30_http/http-server-db/ | kubectl delete -f - && \
 kustomize build 70_databases/postgresql/ | kubectl delete -f -
 
-kustomize build 100_applications/40_broker/kafka-consumer/ | kubectl delete -f - && \
-kustomize build 100_applications/40_broker/kafka-producer/ | kubectl delete -f - && \
+kustomize build 90_apps/40_broker/kafka-consumer/ | kubectl delete -f - && \
+kustomize build 90_apps/40_broker/kafka-producer/ | kubectl delete -f - && \
 kustomize build 80_brokers/kafka/50_monitoring/ | kubectl delete -f - && \
 kustomize build 80_brokers/kafka/40_topics/ | kubectl delete -f - && \
 kustomize build 80_brokers/kafka/30_kafka/ | kubectl delete -f - && \

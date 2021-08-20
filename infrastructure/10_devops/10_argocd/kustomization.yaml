@@ -14,11 +14,11 @@ resources:
   - 4_repo-server/
   - 4_server/
   - 5_metrics-services/
-  - 10_default-projects/
+  - 6_default-projects/
 
 commonLabels:
   app: argocd
-  domain: cd
+  domain: gitops
   # required by argocd
   app.kubernetes.io/part-of: argocd
 
