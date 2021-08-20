@@ -1,7 +1,7 @@
 package consumer
 
 import (
-	"github.com/confluentinc/confluent-kafka-go/kafka"
+	"gopkg.in/confluentinc/confluent-kafka-go.v1/kafka"
 )
 
 type KafkaConsumer struct {

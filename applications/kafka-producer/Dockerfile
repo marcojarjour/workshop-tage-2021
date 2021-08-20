@@ -1,16 +1,11 @@
-
-# --- buider stage
-
-FROM golang:1.15-buster AS builder
+# buider stage
+FROM golang:1.16-stretch as builder
 
 # Set working directory
 WORKDIR /src
 
-# Prepare Golang environment
-ENV GO111MODULE on
-
 # Copy go-modules definition for the application
-COPY go.mod go.mod
+COPY go.mod .
 
 # Download required go-modules
 RUN go mod download
@@ -19,18 +14,15 @@ RUN go mod download
 COPY . .
 
 # Compile application
-RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o /bin/app
+RUN CGO_ENABLED=1 GOOS=linux GOARCH=amd64 go build -tags netgo -o /bin/app -ldflags "-w -s"
 
+# final stage
+FROM debian:11-slim
 
-# --- final stage
-
-FROM alpine
-
-# Install additionals
-RUN apk add --no-cache bash iputils curl bind-tools
+# Set working directory
+WORKDIR /bin
 
 # Copy application executable
-WORKDIR /bin/
 COPY --from=builder --chown=1001 /bin/app .
 
 ## Metrics
@@ -42,4 +34,4 @@ EXPOSE 9090
 USER 1001
 
 # Run application
-ENTRYPOINT "/bin/app"
+ENTRYPOINT ["/bin/app"]

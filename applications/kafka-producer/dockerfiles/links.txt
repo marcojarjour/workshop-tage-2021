@@ -1,0 +1,11 @@
+
+## official doc
+https://docs.confluent.io/clients-confluent-kafka-go/current/overview.html
+
+## libraries
+https://github.com/confluentinc/confluent-kafka-go#getting-started
+https://github.com/edenhill/librdkafka/
+
+## dockerfiles
+https://github.com/riferrei/confluent-kafka-go-with-docker/blob/master/Dockerfile
+https://github.com/confluentinc/confluent-kafka-go/issues/461

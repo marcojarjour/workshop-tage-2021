@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/confluentinc/confluent-kafka-go/kafka"
 	"github.com/opentracing/opentracing-go"
+	"gopkg.in/confluentinc/confluent-kafka-go.v1/kafka"
 
 	"github.com/bygui86/go-traces/kafka-producer/commons"
 	"github.com/bygui86/go-traces/kafka-producer/logging"

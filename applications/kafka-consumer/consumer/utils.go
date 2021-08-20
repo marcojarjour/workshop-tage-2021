@@ -3,9 +3,9 @@ package consumer
 import (
 	"fmt"
 
-	"github.com/confluentinc/confluent-kafka-go/kafka"
 	"github.com/opentracing/opentracing-go"
 	"github.com/opentracing/opentracing-go/ext"
+	"gopkg.in/confluentinc/confluent-kafka-go.v1/kafka"
 
 	"github.com/bygui86/go-traces/kafka-consumer/commons"
 	"github.com/bygui86/go-traces/kafka-consumer/logging"

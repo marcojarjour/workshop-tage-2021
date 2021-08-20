@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/confluentinc/confluent-kafka-go/kafka"
+	"gopkg.in/confluentinc/confluent-kafka-go.v1/kafka"
 
 	"github.com/bygui86/go-traces/kafka-consumer/logging"
 )

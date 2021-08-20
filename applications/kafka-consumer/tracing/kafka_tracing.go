@@ -1,8 +1,8 @@
 package tracing
 
 import (
-	"github.com/confluentinc/confluent-kafka-go/kafka"
 	"github.com/opentracing/opentracing-go"
+	"gopkg.in/confluentinc/confluent-kafka-go.v1/kafka"
 )
 
 /*

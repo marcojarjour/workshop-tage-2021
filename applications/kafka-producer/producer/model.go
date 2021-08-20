@@ -3,7 +3,7 @@ package producer
 import (
 	"time"
 
-	"github.com/confluentinc/confluent-kafka-go/kafka"
+	"gopkg.in/confluentinc/confluent-kafka-go.v1/kafka"
 )
 
 type KafkaProducer struct {
