@@ -11,12 +11,13 @@ data:
             "builtIn": 1,
             "datasource": "prometheus",
             "enable": true,
-            "expr": "time() == BOOL timestamp(rate(kube_pod_container_status_restarts_total{job=\"kube-state-metrics\", namespace=\"$namespace\", pod=\"$pod\"}[1m]) > 0)",
+            "expr": "increase(kube_pod_container_status_restarts_total{job=\"kube-state-metrics\", namespace=\"$namespace\", pod=\"$pod\"}[2m])",
             "hide": false,
             "iconColor": "#C4162A",
             "limit": 100,
             "name": "Restarts",
             "showIn": 0,
+            "step": "2m",
             "type": "dashboard"
           }
         ]
@@ -2555,5 +2556,5 @@ data:
       "timezone": "browser",
       "title": "Go services",
       "uid": "go-services",
-      "version": 13
+      "version": 1
     }

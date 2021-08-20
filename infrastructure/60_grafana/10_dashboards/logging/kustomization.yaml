@@ -9,7 +9,6 @@ resources:
   - loki-quick-search.yaml
   - loki-reads.yaml
   - loki-writes.yaml
-  # - vector.yaml
 
 commonLabels:
   folder: logging

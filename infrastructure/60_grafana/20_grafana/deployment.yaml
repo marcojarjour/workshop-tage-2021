@@ -181,9 +181,6 @@ spec:
             - mountPath: /etc/dashboards/logging/loki-writes.json
               subPath: loki-writes.json
               name: grafana-dashboard-loki-writes
-            # - mountPath: /etc/dashboards/logging/vector.json
-            #   subPath: vector.json
-            #   name: grafana-dashboard-vector
             
             ### tracing
             - mountPath: /etc/dashboards/tracing/jaeger-all-in-one.json
@@ -191,16 +188,24 @@ spec:
               name: grafana-dashboard-jaeger-all-in-one
             
             ### brokers
-            # - mountPath: /etc/dashboards/brokers/strimzi-kafka.json
-            #   subPath: strimzi-kafka.json
-            #   name: grafana-dashboard-strimzi-kafka
-            # - mountPath: /etc/dashboards/brokers/strimzi-zookeeper.json
-            #   subPath: strimzi-zookeeper.json
-            #   name: grafana-dashboard-strimzi-zookeeper
-            # - mountPath: /etc/dashboards/brokers/strimzi-operators.json
-            #   subPath: strimzi-operators.json
-            #   name: grafana-dashboard-strimzi-operators
+            - mountPath: /etc/dashboards/brokers/strimzi-kafka-exporter.json
+              subPath: strimzi-kafka-exporter.json
+              name: grafana-dashboard-strimzi-kafka-exporter
+            - mountPath: /etc/dashboards/brokers/strimzi-kafka.json
+              subPath: strimzi-kafka.json
+              name: grafana-dashboard-strimzi-kafka
+            - mountPath: /etc/dashboards/brokers/strimzi-operators.json
+              subPath: strimzi-operators.json
+              name: grafana-dashboard-strimzi-operators
+            - mountPath: /etc/dashboards/brokers/strimzi-zookeeper.json
+              subPath: strimzi-zookeeper.json
+              name: grafana-dashboard-strimzi-zookeeper
             
+            ### databases
+            - mountPath: /etc/dashboards/services/postgresql.json
+              subPath: postgresql.json
+              name: grafana-dashboard-postgresql
+
             ### services
             - mountPath: /etc/dashboards/services/go-services.json
               subPath: go-services.json
@@ -208,6 +213,9 @@ spec:
             - mountPath: /etc/dashboards/services/global-status.json
               subPath: global-status.json
               name: grafana-dashboard-global-status
+            - mountPath: /etc/dashboards/services/throttling.json
+              subPath: throttling.json
+              name: grafana-dashboard-throttling
 
       volumes:
         # storage
@@ -334,9 +342,6 @@ spec:
         - configMap:
             name: grafana-dashboard-loki-writes
           name: grafana-dashboard-loki-writes
-        # - configMap:
-        #     name: grafana-dashboard-vector
-        #   name: grafana-dashboard-vector
 
         ### tracing
         - configMap:
@@ -344,15 +349,23 @@ spec:
           name: grafana-dashboard-jaeger-all-in-one
 
         ### brokers
-        # - configMap:
-        #     name: grafana-dashboard-strimzi-kafka
-        #   name: grafana-dashboard-strimzi-kafka
-        # - configMap:
-        #     name: grafana-dashboard-strimzi-zookeeper
-        #   name: grafana-dashboard-strimzi-zookeeper
-        # - configMap:
-        #     name: grafana-dashboard-strimzi-operators
-        #   name: grafana-dashboard-strimzi-operators
+        - configMap:
+            name: grafana-dashboard-strimzi-kafka-exporter
+          name: grafana-dashboard-strimzi-kafka-exporter
+        - configMap:
+            name: grafana-dashboard-strimzi-kafka
+          name: grafana-dashboard-strimzi-kafka
+        - configMap:
+            name: grafana-dashboard-strimzi-operators
+          name: grafana-dashboard-strimzi-operators
+        - configMap:
+            name: grafana-dashboard-strimzi-zookeeper
+          name: grafana-dashboard-strimzi-zookeeper
+
+        ### databases
+        - configMap:
+            name: grafana-dashboard-postgresql
+          name: grafana-dashboard-postgresql
 
         ### services
         - configMap:
@@ -361,3 +374,6 @@ spec:
         - configMap:
             name: grafana-dashboard-global-status
           name: grafana-dashboard-global-status
+        - configMap:
+            name: grafana-dashboard-throttling
+          name: grafana-dashboard-throttling
