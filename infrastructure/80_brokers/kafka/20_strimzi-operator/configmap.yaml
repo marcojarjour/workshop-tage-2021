@@ -1,0 +1,80 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: strimzi-cluster-operator
+data:
+  STRIMZI_FULL_RECONCILIATION_INTERVAL_MS: "120000"
+  STRIMZI_OPERATION_TIMEOUT_MS: "300000"
+  # 2.6.0
+  STRIMZI_DEFAULT_TLS_SIDECAR_ENTITY_OPERATOR_IMAGE: strimzi/kafka@sha256:a7836159f95072a4b2bee952208b0d2f280fbc516cdbc9f6dafc476c0d7b7ebf
+  # 2.6.0
+  STRIMZI_DEFAULT_KAFKA_EXPORTER_IMAGE: strimzi/kafka@sha256:a7836159f95072a4b2bee952208b0d2f280fbc516cdbc9f6dafc476c0d7b7ebf
+  # 2.6.0
+  STRIMZI_DEFAULT_CRUISE_CONTROL_IMAGE: strimzi/kafka@sha256:a7836159f95072a4b2bee952208b0d2f280fbc516cdbc9f6dafc476c0d7b7ebf
+  # 2.6.0
+  STRIMZI_DEFAULT_TLS_SIDECAR_CRUISE_CONTROL_IMAGE: strimzi/kafka@sha256:a7836159f95072a4b2bee952208b0d2f280fbc516cdbc9f6dafc476c0d7b7ebf
+  STRIMZI_KAFKA_IMAGES: |
+      2.5.0=strimzi/kafka@sha256:04f2f20ec54d37e8d7ba41ce1750c028e9dd98268e3007f14bf6988516e675a3
+      2.5.1=strimzi/kafka@sha256:de912deee0a7e51b7408418911b6e24207d7a42ada1379e6d4c1bbb074f76a3d
+      2.6.0=strimzi/kafka@sha256:a7836159f95072a4b2bee952208b0d2f280fbc516cdbc9f6dafc476c0d7b7ebf
+  STRIMZI_KAFKA_CONNECT_IMAGES: |
+      2.5.0=strimzi/kafka@sha256:04f2f20ec54d37e8d7ba41ce1750c028e9dd98268e3007f14bf6988516e675a3
+      2.5.1=strimzi/kafka@sha256:de912deee0a7e51b7408418911b6e24207d7a42ada1379e6d4c1bbb074f76a3d
+      2.6.0=strimzi/kafka@sha256:a7836159f95072a4b2bee952208b0d2f280fbc516cdbc9f6dafc476c0d7b7ebf
+  STRIMZI_KAFKA_CONNECT_S2I_IMAGES: |
+      2.5.0=strimzi/kafka@sha256:04f2f20ec54d37e8d7ba41ce1750c028e9dd98268e3007f14bf6988516e675a3
+      2.5.1=strimzi/kafka@sha256:de912deee0a7e51b7408418911b6e24207d7a42ada1379e6d4c1bbb074f76a3d
+      2.6.0=strimzi/kafka@sha256:a7836159f95072a4b2bee952208b0d2f280fbc516cdbc9f6dafc476c0d7b7ebf
+  STRIMZI_KAFKA_MIRROR_MAKER_IMAGES: |
+      2.5.0=strimzi/kafka@sha256:04f2f20ec54d37e8d7ba41ce1750c028e9dd98268e3007f14bf6988516e675a3
+      2.5.1=strimzi/kafka@sha256:de912deee0a7e51b7408418911b6e24207d7a42ada1379e6d4c1bbb074f76a3d
+      2.6.0=strimzi/kafka@sha256:a7836159f95072a4b2bee952208b0d2f280fbc516cdbc9f6dafc476c0d7b7ebf
+  STRIMZI_KAFKA_MIRROR_MAKER_2_IMAGES: |
+      2.5.0=strimzi/kafka@sha256:04f2f20ec54d37e8d7ba41ce1750c028e9dd98268e3007f14bf6988516e675a3
+      2.5.1=strimzi/kafka@sha256:de912deee0a7e51b7408418911b6e24207d7a42ada1379e6d4c1bbb074f76a3d
+      2.6.0=strimzi/kafka@sha256:a7836159f95072a4b2bee952208b0d2f280fbc516cdbc9f6dafc476c0d7b7ebf
+  # 0.20.0
+  STRIMZI_DEFAULT_TOPIC_OPERATOR_IMAGE: strimzi/operator@sha256:62218aee7553b31db1f65bc30b3c6b6595c2fd631b2e1792e24e554a47080aa6
+  # 0.20.0
+  STRIMZI_DEFAULT_USER_OPERATOR_IMAGE: strimzi/operator@sha256:62218aee7553b31db1f65bc30b3c6b6595c2fd631b2e1792e24e554a47080aa6
+  # 0.20.0
+  STRIMZI_DEFAULT_KAFKA_INIT_IMAGE: strimzi/operator@sha256:62218aee7553b31db1f65bc30b3c6b6595c2fd631b2e1792e24e554a47080aa6
+  # 0.19.0
+  STRIMZI_DEFAULT_KAFKA_BRIDGE_IMAGE: strimzi/kafka-bridge@sha256:bed07186355a4c04ee50e90048e3bd3a023264093a9ef28f0278cce44640e93f
+  # 0.20.0
+  STRIMZI_DEFAULT_JMXTRANS_IMAGE: strimzi/jmxtrans@sha256:54731f53b77f7a3ccd39b243d41c3ba9151be17cb8d879f9004a961aeaa4f796
+
+---
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: strimzi-cluster-operator-log4j2
+data:
+  log4j2.properties: |
+    name = COConfig
+    monitorInterval = 30
+
+    appender.console.type = Console
+    appender.console.name = STDOUT
+    appender.console.layout.type = PatternLayout
+    appender.console.layout.pattern = %d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n
+
+    rootLogger.level = ${env:STRIMZI_LOG_LEVEL:-INFO}
+    rootLogger.appenderRefs = stdout
+    rootLogger.appenderRef.console.ref = STDOUT
+    rootLogger.additivity = false
+
+    # Kafka AdminClient logging is a bit noisy at INFO level
+    logger.kafka.name = org.apache.kafka
+    logger.kafka.level = WARN
+    logger.kafka.additivity = false
+
+    # Zookeeper is very verbose even on INFO level -> We set it to WARN by default
+    logger.zookeepertrustmanager.name = org.apache.zookeeper
+    logger.zookeepertrustmanager.level = WARN
+    logger.zookeepertrustmanager.additivity = false
+
+    # Keeps separate level for Netty logging -> to not be changed by the root logger
+    logger.netty.name = io.netty
+    logger.netty.level = INFO
+    logger.netty.additivity = false

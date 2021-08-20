@@ -1,0 +1,72 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: strimzi-cluster-operator
+  annotations:
+    strimziOperatorVersion: "strimzi/operator:0.20.0"
+    strimziKafkaBridgeVersion: "strimzi/kafka-bridge:0.19.0"
+    strimziJmxTransVersion: "strimzi/jmxtrans:0.20.0"
+    strimziKafkaLatestVersion: "strimzi/kafka:0.20.0-kafka-2.6.0"
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      component: cluster-operator
+      strimzi.io/kind: cluster-operator
+  template:
+    metadata:
+      labels:
+        component: cluster-operator
+        strimzi.io/kind: cluster-operator
+    spec:
+      serviceAccountName: strimzi-cluster-operator
+      securityContext:
+        runAsNonRoot: true
+      containers:
+        - name: strimzi-cluster-operator
+          image: strimzi/operator:0.20.0@sha256:62218aee7553b31db1f65bc30b3c6b6595c2fd631b2e1792e24e554a47080aa6
+          imagePullPolicy: IfNotPresent
+          args:
+            - /opt/strimzi/bin/cluster_operator_run.sh
+          envFrom:
+            - configMapRef:
+                name: strimzi-cluster-operator
+          env:
+            - name: STRIMZI_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+          ports:
+            - name: http
+              containerPort: 8080
+          resources:
+            requests:
+              cpu: 500m
+              memory: 384Mi
+            limits:
+              cpu: 1
+              memory: 768Mi
+          livenessProbe:
+            httpGet:
+              path: /healthy
+              port: http
+            initialDelaySeconds: 10
+            periodSeconds: 30
+          readinessProbe:
+            httpGet:
+              path: /ready
+              port: http
+            initialDelaySeconds: 10
+            periodSeconds: 30
+          securityContext:
+            runAsNonRoot: true
+            readOnlyRootFilesystem: false
+          volumeMounts:
+            - name: log4j2-config
+              mountPath: /opt/strimzi/custom-config/
+      volumes:
+        - name: log4j2-config
+          configMap:
+            name: strimzi-cluster-operator-log4j2

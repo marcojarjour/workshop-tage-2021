@@ -16,9 +16,8 @@ data:
   JAEGER_AGENT_HOST: jaeger-agent.tracing.svc.cluster.local
 
   # database
-  DB_HOST: postgres.apps.svc.cluster.local
-  # DB_PORT: "5432"
-  # TODO replace following config with values from postgresql configmap and secret
-  DB_USERNAME: postgres
-  DB_PASSWORD: supersecret
+  DB_HOST: postgresql.apps.svc.cluster.local
+  DB_PORT: "5432"
   DB_NAME: postgres
+  # DB_USERNAME: from postgresql secret
+  # DB_PASSWORD: from postgresql secret

@@ -1,0 +1,78 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: strimzi-kafka-metrics
+  labels:
+    app: strimzi
+    component: kafka
+spec:
+  selector:
+    app: strimzi
+    domain: broker
+    feature: kafka
+    component: kafka
+    strimzi.io/name: strimzi-kafka
+  ports:
+    - name: tcp-prometheus
+      port: 9404
+      targetPort: tcp-prometheus
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: strimzi-zookeeper-metrics
+  labels:
+    app: strimzi
+    component: zookeeper
+spec:
+  selector:
+    app: strimzi
+    domain: broker
+    feature: kafka
+    component: zookeeper
+    strimzi.io/name: strimzi-zookeeper
+  ports:
+    - name: tcp-prometheus
+      port: 9404
+      targetPort: tcp-prometheus
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: strimzi-kafka-exporter
+  labels:
+    app: strimzi
+    component: kafka-exporter
+spec:
+  selector:
+    app: strimzi
+    domain: broker
+    feature: kafka
+    component: kafka-exporter
+    strimzi.io/name: strimzi-kafka-exporter
+  ports:
+    - name: tcp-prometheus
+      port: 9404
+      targetPort: tcp-prometheus
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: strimzi-entity-operator
+  labels:
+    app: strimzi
+    component: entity-operator
+spec:
+  selector:
+    app: strimzi
+    domain: broker
+    feature: kafka
+    # component: entity-operator
+    strimzi.io/name: strimzi-entity-operator
+  ports:
+    - name: healthcheck
+      port: 8080
+      targetPort: healthcheck

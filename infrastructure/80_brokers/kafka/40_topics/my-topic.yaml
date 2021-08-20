@@ -1,0 +1,12 @@
+apiVersion: kafka.strimzi.io/v1beta1
+kind: KafkaTopic
+metadata:
+  name: my-topic
+spec:
+  topicName: my-topic
+  partitions: 1
+  replicas: 1
+  # config:
+  #   # default set in Kafka
+  #   retention.ms: 86400000 # 1 day
+  #   segment.bytes: 536870912 # 512 MB

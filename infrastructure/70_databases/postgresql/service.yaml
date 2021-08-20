@@ -1,0 +1,36 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgresql
+  labels:
+    headless: "false"
+spec:
+  selector:
+    app: postgresql
+  ports:
+    - name: postgresql
+      port: 5432
+      targetPort: postgresql
+    - name: metrics
+      port: 9187
+      targetPort: metrics
+
+---
+# INFO: required by StatefulSet
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgresql-headless
+  labels:
+    headless: "true"
+spec:
+  clusterIP: None
+  selector:
+    app: postgresql
+  ports:
+    - name: postgresql
+      port: 5432
+      targetPort: postgresql
+    - name: metrics
+      port: 9187
+      targetPort: metrics

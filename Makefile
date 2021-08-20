@@ -15,6 +15,9 @@
 start-docker-minikube :		## Start Minikube with Docker driver
 	minikube start --driver=docker --cpus=8 --memory=12288 --disk-size=50g
 
+start-hyperkit-minikube :		## Start Minikube with Docker driver
+	minikube start --driver=hyperkit --cpus=8 --memory=12288 --disk-size=50g
+
 start-virtualbox-minikube :		## Start Minikube with VirtualBox driver
 	minikube start --driver=virtualbox --cpus=8 --memory=12288 --disk-size=50g
 

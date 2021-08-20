@@ -3,6 +3,8 @@
 
 ## Preparation
 
+### Repo
+
 git clone git@github.com:bygui86/workshop-tage-2021.git
 
 cd workshop-tage-2021/
@@ -20,7 +22,12 @@ cd workshop-tage-2021/
 ### 3. Minikube
 
 make start-docker-minikube
-make start-virtualbox-minikube
+
+make start-hyperkit-minikube
+
+make start-virtualbox-minikube (slower in provisioning and container image download)
+
+---
 
 ## Infrastructure
 
@@ -32,23 +39,25 @@ kustomize build 10_namespaces/ | kubectl apply -f -
 
 ### 2. Monitoring
 
-kustomize build 30_monitoring/10_prometheus/10_crds/ | kubectl apply -f -
-kustomize build 30_monitoring/10_prometheus/20_operator/ | kubectl apply -f -
-kustomize build 30_monitoring/10_prometheus/30_ns-rbac/ | kubectl apply -f -
+kustomize build 30_monitoring/10_prometheus/10_crds/ | kubectl apply -f - && \
+sleep 5 && \
+kustomize build 30_monitoring/10_prometheus/20_operator/ | kubectl apply -f - && \
+kustomize build 30_monitoring/10_prometheus/30_ns-rbac/ | kubectl apply -f - && \
 kustomize build 30_monitoring/10_prometheus/40_prometheus/ | kubectl apply -f -
 
-kustomize build 30_monitoring/20_kube-state-metrics/ | kubectl apply -f -
+kustomize build 30_monitoring/20_kube-state-metrics/ | kubectl apply -f - && \
 kustomize build 30_monitoring/30_node-exporter/ | kubectl apply -f -
 
 ### 3. Logging
 
-kustomize build 40_logging/10_loki/ | kubectl apply -f -
+kustomize build 40_logging/10_loki/ | kubectl apply -f - && \
 kustomize build 40_logging/20_vector/ | kubectl apply -f -
 
 ### 4. Tracing
 
-kustomize build 50_tracing/10_jaeger/10_crds/ | kubectl apply -f -
-kustomize build 50_tracing/10_jaeger/20_operator/ | kubectl apply -f -
+kustomize build 50_tracing/10_jaeger/10_crds/ | kubectl apply -f - && \
+sleep 5 && \
+kustomize build 50_tracing/10_jaeger/20_operator/ | kubectl apply -f - && \
 kustomize build 50_tracing/10_jaeger/30_jaeger/ | kubectl apply -f -
 
 ### 5. Grafana
@@ -59,34 +68,72 @@ kustomize build 60_grafana/ | kubectl apply -f -
 
 kubectl port-forward svc/prometheus 9090 -n monitoring
 kubectl port-forward svc/grafana 3000 -n monitoring
+kubectl port-forward svc/jaeger-query 16686 -n tracing
 
-`TILL HERE EVERYTHING TESTED`
+---
 
-### 6. Applications
+## Applications
 
-#### Standalone
+### Standalone
 
 kustomize build 100_applications/10_standalone/ | kubectl apply -f -
 
-#### HTTP
+### HTTP `NOT WORKING AS EXPECTED`
 
-kustomize build 100_applications/20_http/http-client/ | kubectl apply -f -
+kustomize build 100_applications/20_http/http-client/ | kubectl apply -f - && \
 kustomize build 100_applications/20_http/http-server/ | kubectl apply -f -
 
-#### HTTP with DB backbone
+kubectl port-forward svc/http-client 8080 -n apps
 
-`TODO` 70_databases/
-kustomize build 100_applications/20_http/http-client-db/ | kubectl apply -f -
-kustomize build 100_applications/20_http/http-server-db/ | kubectl apply -f -
+`MANUAL` make some requests using Postman
 
-#### gRPC
+### gRPC
 
-kustomize build 100_applications/30_grpc/grpc-client/ | kubectl apply -f -
+kustomize build 100_applications/30_grpc/grpc-client/ | kubectl apply -f - && \
 kustomize build 100_applications/30_grpc/grpc-server/ | kubectl apply -f -
 
-#### Broker
+### HTTP with DB backbone
 
-`TODO` 80_brokers/
+kustomize build 70_databases/postgresql/ | kubectl apply -f -
 
-kustomize build 100_applications/40_broker/kafka-consumer/ | kubectl apply -f -
+kustomize build 100_applications/21_http-db/http-client-db/ | kubectl apply -f - && \
+kustomize build 100_applications/21_http-db/http-server-db/ | kubectl apply -f -
+
+kubectl port-forward svc/http-client-db 8080 -n apps
+
+`MANUAL` make some requests using Postman
+
+### Broker
+
+kustomize build 80_brokers/kafka/10_crds/ | kubectl apply -f - && \
+sleep 5 && \
+kustomize build 80_brokers/kafka/20_strimzi-operator/ | kubectl apply -f -
+
+kustomize build 80_brokers/kafka/30_kafka/ | kubectl apply -f - && \
+kustomize build 80_brokers/kafka/40_topics/ | kubectl apply -f - && \
+kustomize build 80_brokers/kafka/50_monitoring/ | kubectl apply -f -
+
+kustomize build 100_applications/40_broker/kafka-consumer/ | kubectl apply -f - && \
 kustomize build 100_applications/40_broker/kafka-producer/ | kubectl apply -f -
+
+### Cleanup
+
+kustomize build 100_applications/10_standalone/ | kubectl delete -f - && \
+
+kustomize build 100_applications/20_http/http-client/ | kubectl delete -f - && \
+kustomize build 100_applications/20_http/http-server/ | kubectl delete -f - && \
+
+kustomize build 100_applications/30_grpc/grpc-client/ | kubectl delete -f - && \
+kustomize build 100_applications/30_grpc/grpc-server/ | kubectl delete -f - && \
+
+kustomize build 100_applications/21_http-db/http-client-db/ | kubectl delete -f - && \
+kustomize build 100_applications/21_http-db/http-server-db/ | kubectl delete -f - && \
+kustomize build 70_databases/postgresql/ | kubectl delete -f -
+
+kustomize build 100_applications/40_broker/kafka-consumer/ | kubectl delete -f - && \
+kustomize build 100_applications/40_broker/kafka-producer/ | kubectl delete -f - && \
+kustomize build 80_brokers/kafka/50_monitoring/ | kubectl delete -f - && \
+kustomize build 80_brokers/kafka/40_topics/ | kubectl delete -f - && \
+kustomize build 80_brokers/kafka/30_kafka/ | kubectl delete -f - && \
+kustomize build 80_brokers/kafka/20_strimzi-operator/ | kubectl delete -f - && \
+kustomize build 80_brokers/kafka/10_crds/ | kubectl delete -f -
