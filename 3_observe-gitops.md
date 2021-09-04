@@ -155,8 +155,8 @@ kubectl apply -f 100_gitops/8_apps.yaml
 ### 2. gRPC applications
 
 ```bash
-# Open 100_gitops/8_apps/kustomization.yaml
-subl 100_gitops/8_apps/kustomization.yaml
+# Edit 100_gitops/8_apps/kustomization.yaml
+open 100_gitops/8_apps/kustomization.yaml
 
 # Uncomment line 8
 
@@ -167,8 +167,8 @@ kubectl apply -f 100_gitops/8_apps.yaml
 ### 3. HTTP applications
 
 ```bash
-# Open 100_gitops/8_apps/kustomization.yaml
-subl 100_gitops/8_apps/kustomization.yaml
+# Edit 100_gitops/8_apps/kustomization.yaml
+open 100_gitops/8_apps/kustomization.yaml
 
 # Uncomment line 9
 
@@ -179,8 +179,8 @@ kubectl apply -f 100_gitops/8_apps.yaml
 ### 4. Broker applications
 
 ```bash
-# Open 100_gitops/8_apps/kustomization.yaml
-subl 100_gitops/8_apps/kustomization.yaml
+# Edit 100_gitops/8_apps/kustomization.yaml
+open 100_gitops/8_apps/kustomization.yaml
 
 # Uncomment line 10
 
