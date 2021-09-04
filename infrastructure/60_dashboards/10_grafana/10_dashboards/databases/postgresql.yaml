@@ -22,8 +22,8 @@ data:
       "editable": true,
       "gnetId": 455,
       "graphTooltip": 0,
-      "id": 33,
-      "iteration": 1576513317629,
+      "id": 48,
+      "iteration": 1630791591086,
       "links": [],
       "panels": [
         {
@@ -47,6 +47,13 @@ data:
           "dashes": false,
           "datasource": "prometheus",
           "description": "User and system CPU time spent in seconds.",
+          "fieldConfig": {
+            "defaults": {
+              "custom": {},
+              "links": []
+            },
+            "overrides": []
+          },
           "fill": 1,
           "fillGradient": 5,
           "gridPos": {
@@ -55,6 +62,7 @@ data:
             "x": 0,
             "y": 1
           },
+          "hiddenSeries": false,
           "id": 67,
           "legend": {
             "alignAsTable": true,
@@ -71,9 +79,10 @@ data:
           "links": [],
           "nullPointMode": "null",
           "options": {
-            "dataLinks": []
+            "alertThreshold": true
           },
           "percentage": false,
+          "pluginVersion": "7.4.0-beta1",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -142,6 +151,13 @@ data:
           "dashes": false,
           "datasource": "prometheus",
           "description": "Virtual and Resident memory size in bytes",
+          "fieldConfig": {
+            "defaults": {
+              "custom": {},
+              "links": []
+            },
+            "overrides": []
+          },
           "fill": 1,
           "fillGradient": 5,
           "gridPos": {
@@ -150,6 +166,7 @@ data:
             "x": 8,
             "y": 1
           },
+          "hiddenSeries": false,
           "id": 69,
           "legend": {
             "alignAsTable": true,
@@ -166,9 +183,10 @@ data:
           "links": [],
           "nullPointMode": "null",
           "options": {
-            "dataLinks": []
+            "alertThreshold": true
           },
           "percentage": false,
+          "pluginVersion": "7.4.0-beta1",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -244,6 +262,13 @@ data:
           "dashes": false,
           "datasource": "prometheus",
           "description": "Number of open file descriptors",
+          "fieldConfig": {
+            "defaults": {
+              "custom": {},
+              "links": []
+            },
+            "overrides": []
+          },
           "fill": 1,
           "fillGradient": 5,
           "gridPos": {
@@ -252,6 +277,7 @@ data:
             "x": 16,
             "y": 1
           },
+          "hiddenSeries": false,
           "id": 71,
           "legend": {
             "alignAsTable": true,
@@ -268,9 +294,10 @@ data:
           "links": [],
           "nullPointMode": "null",
           "options": {
-            "dataLinks": []
+            "alertThreshold": true
           },
           "percentage": false,
+          "pluginVersion": "7.4.0-beta1",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -342,6 +369,12 @@ data:
           "datasource": "prometheus",
           "decimals": null,
           "description": "",
+          "fieldConfig": {
+            "defaults": {
+              "custom": {}
+            },
+            "overrides": []
+          },
           "format": "dateTimeFromNow",
           "gauge": {
             "maxValue": 100,
@@ -373,7 +406,6 @@ data:
           "maxDataPoints": 100,
           "nullPointMode": "connected",
           "nullText": null,
-          "options": {},
           "postfix": "",
           "postfixFontSize": "80%",
           "prefix": "",
@@ -428,6 +460,12 @@ data:
           "decimals": 0,
           "editable": true,
           "error": false,
+          "fieldConfig": {
+            "defaults": {
+              "custom": {}
+            },
+            "overrides": []
+          },
           "format": "ops",
           "gauge": {
             "maxValue": 100,
@@ -461,7 +499,6 @@ data:
           "maxDataPoints": 100,
           "nullPointMode": "connected",
           "nullText": null,
-          "options": {},
           "postfix": "",
           "postfixFontSize": "50%",
           "prefix": "",
@@ -557,6 +594,13 @@ data:
           "dashLength": 10,
           "dashes": false,
           "datasource": "prometheus",
+          "fieldConfig": {
+            "defaults": {
+              "custom": {},
+              "links": []
+            },
+            "overrides": []
+          },
           "fill": 0,
           "fillGradient": 0,
           "gridPos": {
@@ -565,6 +609,7 @@ data:
             "x": 6,
             "y": 10
           },
+          "hiddenSeries": false,
           "id": 26,
           "legend": {
             "alignAsTable": true,
@@ -582,9 +627,10 @@ data:
           "links": [],
           "nullPointMode": "null",
           "options": {
-            "dataLinks": []
+            "alertThreshold": true
           },
           "percentage": false,
+          "pluginVersion": "7.4.0-beta1",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -665,6 +711,12 @@ data:
           "decimals": 2,
           "editable": true,
           "error": false,
+          "fieldConfig": {
+            "defaults": {
+              "custom": {}
+            },
+            "overrides": []
+          },
           "format": "s",
           "gauge": {
             "maxValue": 100,
@@ -698,7 +750,6 @@ data:
           "maxDataPoints": 100,
           "nullPointMode": "connected",
           "nullText": null,
-          "options": {},
           "postfix": "",
           "postfixFontSize": "50%",
           "prefix": "",
@@ -792,6 +843,13 @@ data:
           "dashLength": 10,
           "dashes": false,
           "datasource": "prometheus",
+          "fieldConfig": {
+            "defaults": {
+              "custom": {},
+              "links": []
+            },
+            "overrides": []
+          },
           "fill": 0,
           "fillGradient": 0,
           "gridPos": {
@@ -800,6 +858,7 @@ data:
             "x": 3,
             "y": 19
           },
+          "hiddenSeries": false,
           "id": 28,
           "legend": {
             "alignAsTable": true,
@@ -819,10 +878,10 @@ data:
           "links": [],
           "nullPointMode": "null",
           "options": {
-            "dataLinks": []
+            "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "6.4.3",
+          "pluginVersion": "7.4.0-beta1",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -1932,6 +1991,12 @@ data:
               ],
               "datasource": "prometheus",
               "description": "",
+              "fieldConfig": {
+                "defaults": {
+                  "custom": {}
+                },
+                "overrides": []
+              },
               "format": "none",
               "gauge": {
                 "maxValue": 100,
@@ -1944,7 +2009,7 @@ data:
                 "h": 5,
                 "w": 2,
                 "x": 0,
-                "y": 2
+                "y": 30
               },
               "id": 47,
               "interval": null,
@@ -1963,7 +2028,6 @@ data:
               "maxDataPoints": 100,
               "nullPointMode": "connected",
               "nullText": null,
-              "options": {},
               "postfix": "",
               "postfixFontSize": "50%",
               "prefix": "",
@@ -2011,14 +2075,22 @@ data:
               "dashes": false,
               "datasource": "prometheus",
               "description": "Total amount of data written to temporary files by queries in this database. All temporary files are counted, regardless of why the temporary file was created, and regardless of the log_temp_files setting.",
+              "fieldConfig": {
+                "defaults": {
+                  "custom": {},
+                  "links": []
+                },
+                "overrides": []
+              },
               "fill": 1,
               "fillGradient": 4,
               "gridPos": {
                 "h": 10,
                 "w": 22,
                 "x": 2,
-                "y": 2
+                "y": 30
               },
+              "hiddenSeries": false,
               "id": 37,
               "legend": {
                 "alignAsTable": true,
@@ -2035,9 +2107,10 @@ data:
               "links": [],
               "nullPointMode": "null",
               "options": {
-                "dataLinks": []
+                "alertThreshold": true
               },
               "percentage": false,
+              "pluginVersion": "7.4.0-beta1",
               "pointradius": 5,
               "points": false,
               "renderer": "flot",
@@ -2106,6 +2179,12 @@ data:
                 "#d44a3a"
               ],
               "datasource": "prometheus",
+              "fieldConfig": {
+                "defaults": {
+                  "custom": {}
+                },
+                "overrides": []
+              },
               "format": "none",
               "gauge": {
                 "maxValue": 100,
@@ -2118,7 +2197,7 @@ data:
                 "h": 5,
                 "w": 2,
                 "x": 0,
-                "y": 7
+                "y": 35
               },
               "id": 49,
               "interval": null,
@@ -2137,7 +2216,6 @@ data:
               "maxDataPoints": 100,
               "nullPointMode": "connected",
               "nullText": null,
-              "options": {},
               "postfix": "",
               "postfixFontSize": "50%",
               "prefix": "",
@@ -2203,6 +2281,12 @@ data:
                 "#d44a3a"
               ],
               "datasource": "prometheus",
+              "fieldConfig": {
+                "defaults": {
+                  "custom": {}
+                },
+                "overrides": []
+              },
               "format": "none",
               "gauge": {
                 "maxValue": 100,
@@ -2215,7 +2299,7 @@ data:
                 "h": 4,
                 "w": 3,
                 "x": 0,
-                "y": 13
+                "y": 31
               },
               "id": 44,
               "interval": null,
@@ -2234,7 +2318,6 @@ data:
               "maxDataPoints": 100,
               "nullPointMode": "connected",
               "nullText": null,
-              "options": {},
               "postfix": "",
               "postfixFontSize": "50%",
               "prefix": "",
@@ -2285,6 +2368,12 @@ data:
                 "#d44a3a"
               ],
               "datasource": "prometheus",
+              "fieldConfig": {
+                "defaults": {
+                  "custom": {}
+                },
+                "overrides": []
+              },
               "format": "none",
               "gauge": {
                 "maxValue": 100,
@@ -2297,7 +2386,7 @@ data:
                 "h": 4,
                 "w": 3,
                 "x": 3,
-                "y": 13
+                "y": 31
               },
               "id": 41,
               "interval": null,
@@ -2316,7 +2405,6 @@ data:
               "maxDataPoints": 100,
               "nullPointMode": "connected",
               "nullText": null,
-              "options": {},
               "postfix": "",
               "postfixFontSize": "50%",
               "prefix": "",
@@ -2368,6 +2456,12 @@ data:
               ],
               "datasource": "prometheus",
               "decimals": 1,
+              "fieldConfig": {
+                "defaults": {
+                  "custom": {}
+                },
+                "overrides": []
+              },
               "format": "bytes",
               "gauge": {
                 "maxValue": 100,
@@ -2380,7 +2474,7 @@ data:
                 "h": 4,
                 "w": 3,
                 "x": 6,
-                "y": 13
+                "y": 31
               },
               "id": 55,
               "interval": null,
@@ -2399,7 +2493,6 @@ data:
               "maxDataPoints": 100,
               "nullPointMode": "connected",
               "nullText": null,
-              "options": {},
               "postfix": "",
               "postfixFontSize": "50%",
               "prefix": "",
@@ -2451,6 +2544,12 @@ data:
               ],
               "datasource": "prometheus",
               "decimals": 1,
+              "fieldConfig": {
+                "defaults": {
+                  "custom": {}
+                },
+                "overrides": []
+              },
               "format": "bytes",
               "gauge": {
                 "maxValue": 100,
@@ -2463,7 +2562,7 @@ data:
                 "h": 4,
                 "w": 3,
                 "x": 9,
-                "y": 13
+                "y": 31
               },
               "id": 51,
               "interval": null,
@@ -2482,7 +2581,6 @@ data:
               "maxDataPoints": 100,
               "nullPointMode": "connected",
               "nullText": null,
-              "options": {},
               "postfix": "",
               "postfixFontSize": "50%",
               "prefix": "",
@@ -2535,6 +2633,12 @@ data:
               ],
               "datasource": "prometheus",
               "decimals": 1,
+              "fieldConfig": {
+                "defaults": {
+                  "custom": {}
+                },
+                "overrides": []
+              },
               "format": "bytes",
               "gauge": {
                 "maxValue": 100,
@@ -2547,7 +2651,7 @@ data:
                 "h": 4,
                 "w": 3,
                 "x": 12,
-                "y": 13
+                "y": 31
               },
               "id": 53,
               "interval": null,
@@ -2566,7 +2670,6 @@ data:
               "maxDataPoints": 100,
               "nullPointMode": "connected",
               "nullText": null,
-              "options": {},
               "postfix": "",
               "postfixFontSize": "50%",
               "prefix": "",
@@ -2618,6 +2721,12 @@ data:
               ],
               "datasource": "prometheus",
               "decimals": 1,
+              "fieldConfig": {
+                "defaults": {
+                  "custom": {}
+                },
+                "overrides": []
+              },
               "format": "bytes",
               "gauge": {
                 "maxValue": 100,
@@ -2630,7 +2739,7 @@ data:
                 "h": 4,
                 "w": 3,
                 "x": 0,
-                "y": 17
+                "y": 35
               },
               "id": 57,
               "interval": null,
@@ -2649,7 +2758,6 @@ data:
               "maxDataPoints": 100,
               "nullPointMode": "connected",
               "nullText": null,
-              "options": {},
               "postfix": "",
               "postfixFontSize": "50%",
               "prefix": "",
@@ -2701,6 +2809,12 @@ data:
               ],
               "datasource": "prometheus",
               "decimals": 1,
+              "fieldConfig": {
+                "defaults": {
+                  "custom": {}
+                },
+                "overrides": []
+              },
               "format": "bytes",
               "gauge": {
                 "maxValue": 100,
@@ -2713,7 +2827,7 @@ data:
                 "h": 4,
                 "w": 3,
                 "x": 3,
-                "y": 17
+                "y": 35
               },
               "id": 59,
               "interval": null,
@@ -2732,7 +2846,6 @@ data:
               "maxDataPoints": 100,
               "nullPointMode": "connected",
               "nullText": null,
-              "options": {},
               "postfix": "",
               "postfixFontSize": "50%",
               "prefix": "",
@@ -2783,6 +2896,12 @@ data:
                 "#d44a3a"
               ],
               "datasource": "prometheus",
+              "fieldConfig": {
+                "defaults": {
+                  "custom": {}
+                },
+                "overrides": []
+              },
               "format": "none",
               "gauge": {
                 "maxValue": 100,
@@ -2795,7 +2914,7 @@ data:
                 "h": 4,
                 "w": 3,
                 "x": 6,
-                "y": 17
+                "y": 35
               },
               "id": 61,
               "interval": null,
@@ -2814,7 +2933,6 @@ data:
               "maxDataPoints": 100,
               "nullPointMode": "connected",
               "nullText": null,
-              "options": {},
               "postfix": "",
               "postfixFontSize": "50%",
               "prefix": "",
@@ -2865,6 +2983,12 @@ data:
                 "#d44a3a"
               ],
               "datasource": "prometheus",
+              "fieldConfig": {
+                "defaults": {
+                  "custom": {}
+                },
+                "overrides": []
+              },
               "format": "none",
               "gauge": {
                 "maxValue": 100,
@@ -2877,7 +3001,7 @@ data:
                 "h": 4,
                 "w": 3,
                 "x": 9,
-                "y": 17
+                "y": 35
               },
               "id": 63,
               "interval": null,
@@ -2896,7 +3020,6 @@ data:
               "maxDataPoints": 100,
               "nullPointMode": "connected",
               "nullText": null,
-              "options": {},
               "postfix": "",
               "postfixFontSize": "50%",
               "prefix": "",
@@ -3134,7 +3257,7 @@ data:
         }
       ],
       "refresh": "30s",
-      "schemaVersion": 20,
+      "schemaVersion": 27,
       "style": "dark",
       "tags": [
         "databases",
@@ -3145,18 +3268,24 @@ data:
           {
             "allValue": ".*",
             "current": {
-              "text": "ast-postgresql",
-              "value": "ast-postgresql"
+              "selected": false,
+              "text": "postgresql",
+              "value": "postgresql"
             },
             "datasource": "prometheus",
             "definition": "label_values(pg_up,job)",
+            "description": null,
+            "error": null,
             "hide": 0,
             "includeAll": false,
             "label": "Host:",
             "multi": false,
             "name": "host",
             "options": [],
-            "query": "label_values(pg_stat_database_tup_fetched,job)",
+            "query": {
+              "query": "label_values(pg_up,job)",
+              "refId": "StandardVariableQuery"
+            },
             "refresh": 1,
             "regex": "",
             "skipUrlSync": false,
@@ -3170,18 +3299,24 @@ data:
           {
             "allValue": ".*",
             "current": {
+              "selected": false,
               "text": "All",
               "value": "$__all"
             },
             "datasource": "prometheus",
             "definition": "label_values(pg_stat_database_tup_fetched{job=~\"$host\",datname!~\"template.*|postgres\"},datname)",
+            "description": null,
+            "error": null,
             "hide": 0,
             "includeAll": true,
             "label": "DB:",
             "multi": false,
             "name": "db",
             "options": [],
-            "query": "label_values(pg_stat_database_tup_fetched{job=~\"$host\",datname!~\"template.*|postgres\"},datname)",
+            "query": {
+              "query": "label_values(pg_stat_database_tup_fetched{job=~\"$host\",datname!~\"template.*|postgres\"},datname)",
+              "refId": "prometheus-db-Variable-Query"
+            },
             "refresh": 1,
             "regex": "",
             "skipUrlSync": false,
@@ -3197,9 +3332,12 @@ data:
             "auto_count": 30,
             "auto_min": "1m",
             "current": {
+              "selected": false,
               "text": "1m",
               "value": "1m"
             },
+            "description": null,
+            "error": null,
             "hide": 0,
             "label": "Interval:",
             "name": "interval",
@@ -3299,5 +3437,5 @@ data:
       "timezone": "browser",
       "title": "PostgreSQL",
       "uid": "postgresql",
-      "version": 1
+      "version": 2
     }
