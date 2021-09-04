@@ -8,7 +8,11 @@ resources:
   - in-cluster.yaml
 
 commonLabels:
+  app: argocd
+  domain: gitops
   group: projects
+  # required by argocd
+  app.kubernetes.io/part-of: argocd
 
 commonAnnotations:
   managed-by: argocd.argoproj.io

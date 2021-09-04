@@ -14,7 +14,6 @@ resources:
   - 4_repo-server/
   - 4_server/
   - 5_metrics-services/
-  - 6_default-projects/
 
 commonLabels:
   app: argocd
