@@ -88,7 +88,7 @@ func startMonitoringServer() *monitoring.Server {
 }
 
 func registerCustomMetrics() {
-	logging.Log.Debug("Register custom metrics")
+	logging.Log.Info("Register custom metrics")
 	monitoring.RegisterCustomMetrics()
 }
 
