@@ -9,6 +9,7 @@ import (
 
 	"github.com/bygui86/go-traces/kafka-consumer/commons"
 	"github.com/bygui86/go-traces/kafka-consumer/logging"
+	"github.com/bygui86/go-traces/kafka-consumer/monitoring"
 	"github.com/bygui86/go-traces/kafka-consumer/tracing"
 )
 
@@ -23,7 +24,10 @@ func (c *KafkaConsumer) subscribeToTopics() error {
 func (c *KafkaConsumer) startConsumer() {
 	for {
 		msg, err := c.consumer.ReadMessage(-1)
-		if err == nil {
+
+		monitoring.IncreaseOpsCounter(commons.ServiceName)
+
+		if err == nil { // SUCCESS
 			carrier := tracing.KafkaHeadersCarrier(msg.Headers)
 			spanCtx, extErr := tracing.Extract(&carrier)
 			if extErr != nil {
@@ -36,7 +40,7 @@ func (c *KafkaConsumer) startConsumer() {
 			}
 
 			topicInfo, msgInfo, headersInfo := c.getMessageInfo(msg)
-			logging.SugaredLog.Infof("Message received: topicInfo[%s], msgInfo[%s], headersInfo[%s]",
+			logging.SugaredLog.Infof("Message received: topic[%s], msg[%s], headers[%s]",
 				topicInfo, msgInfo, headersInfo)
 
 			if span != nil {
@@ -44,14 +48,18 @@ func (c *KafkaConsumer) startConsumer() {
 				span.Finish()
 			}
 
-		} else {
+			monitoring.IncreaseSuccConsumedMsgCounter(commons.ServiceName, *msg.TopicPartition.Topic)
+
+		} else { // FAIL
 			// INFO: The client will automatically try to recover from all errors.
 			if msg != nil {
 				topicInfo, msgInfo, headersInfo := c.getMessageInfo(msg)
-				logging.SugaredLog.Errorf("Consumer error on message: topicInfo[%s], msgInfo[%s], headersInfo[%s], error[%s]",
+				logging.SugaredLog.Errorf("Consumer error on message: topic[%s], msg[%s], headers[%s], error[%s]",
 					topicInfo, msgInfo, headersInfo, err.Error())
+				monitoring.IncreaseFailConsumedMsgCounter(commons.ServiceName, *msg.TopicPartition.Topic)
 			} else {
 				logging.SugaredLog.Errorf("Consumer error: %s", err.Error())
+				monitoring.IncreaseConsumerErrCounter(commons.ServiceName)
 			}
 		}
 	}

@@ -38,6 +38,10 @@ func main() {
 
 	if cfg.GetEnableMonitoring() {
 		monitoringServer = startMonitoringServer()
+
+		if cfg.GetEnableCustomMetrics() {
+			registerCustomMetrics()
+		}
 	}
 
 	if cfg.GetEnableTracing() {
@@ -80,6 +84,11 @@ func startMonitoringServer() *monitoring.Server {
 	logging.Log.Debug("Monitoring successfully started")
 
 	return server
+}
+
+func registerCustomMetrics() {
+	logging.Log.Debug("Register custom metrics")
+	monitoring.RegisterCustomMetrics()
 }
 
 func initJaegerTracer() io.Closer {
