@@ -10,7 +10,7 @@ spec:
       feature: grafana
   namespaceSelector:
     matchNames:
-      - monitoring
+      - dashboards
   endpoints:
     - port: http-ui
       interval: 15s
