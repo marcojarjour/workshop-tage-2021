@@ -15,16 +15,18 @@
 	- [x] strimzi
 	- [x] postgresql
 
-- [ ] introduce gitops `WIP`
-	- [ ] argocd
-	- [ ] argocd apps
+- [x] introduce gitops
+	- [x] argocd
+	- [x] argocd apps
 	- [x] kustomize in all folders
 
-- [ ] fix all grafana dashboard
-	- [ ] postgresql
-	- [ ] others?
+- [x] fix all grafana dashboard
+	- [x] postgresql
+	- [x] grafana
+	- [x] loki
+	- [x] prometheus
 
-- [ ] create dashboard for all custom apps
+- [ ] create dashboard for all custom apps `WIP`
 	- [ ] standadlone
 	- [ ] http
 	- [ ] grpc
@@ -33,14 +35,13 @@
 ### Best effort
 
 - [ ] upgrades
-	- [ ] prometheus
-	- [ ] kube-state-metrics
-	- [ ] node-exporter
 	- [ ] grafana
 	- [ ] loki
 	- [ ] vector
 	- [ ] jaeger
-	- [ ] strimzi
+	- [ ] prometheus
+	- [ ] kube-state-metrics
+	- [ ] node-exporter
 
 ---
 
