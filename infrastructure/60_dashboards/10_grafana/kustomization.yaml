@@ -14,4 +14,4 @@ commonLabels:
   feature: grafana
 
 commonAnnotations:
-  version: "7.4.0-beta1"
+  version: "7.4.5"

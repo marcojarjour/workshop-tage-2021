@@ -24,7 +24,7 @@ spec:
       
       containers:
         - name: grafana
-          image: grafana/grafana:7.4.0-beta1@sha256:54ef31ea1de5345b20cfc22aa7da3d11ff6e6074542aa06d6d03bdcc0d0e07b4
+          image: grafana/grafana:7.4.5@sha256:7c48a0bae126432bfc5b910f68f9d290170c4ffdc48cf8be6a34cb0b95c3b63f
           imagePullPolicy: IfNotPresent
           envFrom:
             - configMapRef:
