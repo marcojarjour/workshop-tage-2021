@@ -22,8 +22,8 @@ data:
       "editable": true,
       "gnetId": 7589,
       "graphTooltip": 0,
-      "id": 67,
-      "iteration": 1607010808792,
+      "id": 51,
+      "iteration": 1630790596957,
       "links": [],
       "panels": [
         {
@@ -777,7 +777,7 @@ data:
           },
           "paceLength": 10,
           "percentage": false,
-          "pluginVersion": "7.3.4",
+          "pluginVersion": "7.4.0-beta1",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -880,7 +880,7 @@ data:
           },
           "paceLength": 10,
           "percentage": false,
-          "pluginVersion": "7.3.4",
+          "pluginVersion": "7.4.0-beta1",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -982,7 +982,7 @@ data:
           },
           "paceLength": 10,
           "percentage": false,
-          "pluginVersion": "7.3.4",
+          "pluginVersion": "7.4.0-beta1",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -1459,7 +1459,7 @@ data:
         }
       ],
       "refresh": "30s",
-      "schemaVersion": 26,
+      "schemaVersion": 27,
       "style": "dark",
       "tags": [
         "brokers",
@@ -1473,12 +1473,14 @@ data:
           {
             "allValue": null,
             "current": {
+              "isNone": true,
               "selected": false,
-              "text": "broker",
-              "value": "broker"
+              "text": "None",
+              "value": ""
             },
             "datasource": "prometheus",
-            "definition": "",
+            "definition": "label_values(kafka_consumergroup_current_offset, namespace)",
+            "description": null,
             "error": null,
             "hide": 0,
             "includeAll": false,
@@ -1486,9 +1488,12 @@ data:
             "multi": false,
             "name": "kubernetes_namespace",
             "options": [],
-            "query": "query_result(kafka_consumergroup_current_offset)",
+            "query": {
+              "query": "label_values(kafka_consumergroup_current_offset, namespace)",
+              "refId": "StandardVariableQuery"
+            },
             "refresh": 1,
-            "regex": "/.*namespace=\"([^\"]*).*/",
+            "regex": "",
             "skipUrlSync": false,
             "sort": 0,
             "tagValuesQuery": "",
@@ -1500,12 +1505,14 @@ data:
           {
             "allValue": null,
             "current": {
-              "selected": true,
-              "text": "strimzi",
-              "value": "strimzi"
+              "isNone": true,
+              "selected": false,
+              "text": "None",
+              "value": ""
             },
             "datasource": "prometheus",
-            "definition": "",
+            "definition": "label_values(kafka_consumergroup_current_offset{namespace=\"$kubernetes_namespace\"}, strimzi_io_cluster)",
+            "description": null,
             "error": null,
             "hide": 0,
             "includeAll": false,
@@ -1513,9 +1520,12 @@ data:
             "multi": false,
             "name": "strimzi_cluster_name",
             "options": [],
-            "query": "query_result(kafka_consumergroup_current_offset{namespace=\"$kubernetes_namespace\"})",
+            "query": {
+              "query": "label_values(kafka_consumergroup_current_offset{namespace=\"$kubernetes_namespace\"}, strimzi_io_cluster)",
+              "refId": "StandardVariableQuery"
+            },
             "refresh": 1,
-            "regex": "/.*strimzi_io_cluster=\"([^\"]*).*/",
+            "regex": "",
             "skipUrlSync": false,
             "sort": 0,
             "tagValuesQuery": "",
@@ -1537,6 +1547,7 @@ data:
             },
             "datasource": "prometheus",
             "definition": "label_values(kafka_consumergroup_current_offset{namespace=\"$kubernetes_namespace\",strimzi_io_cluster=\"$strimzi_cluster_name\"}, consumergroup)",
+            "description": null,
             "error": null,
             "hide": 0,
             "includeAll": true,
@@ -1544,7 +1555,10 @@ data:
             "multi": true,
             "name": "consumergroup",
             "options": [],
-            "query": "label_values(kafka_consumergroup_current_offset{namespace=\"$kubernetes_namespace\",strimzi_io_cluster=\"$strimzi_cluster_name\"}, consumergroup)",
+            "query": {
+              "query": "label_values(kafka_consumergroup_current_offset{namespace=\"$kubernetes_namespace\",strimzi_io_cluster=\"$strimzi_cluster_name\"}, consumergroup)",
+              "refId": "prometheus-consumergroup-Variable-Query"
+            },
             "refresh": 1,
             "regex": "",
             "skipUrlSync": false,
@@ -1568,6 +1582,7 @@ data:
             },
             "datasource": "prometheus",
             "definition": "label_values(kafka_topic_partition_current_offset{namespace=\"$kubernetes_namespace\",strimzi_io_cluster=\"$strimzi_cluster_name\"}, topic)",
+            "description": null,
             "error": null,
             "hide": 0,
             "includeAll": true,
@@ -1575,7 +1590,10 @@ data:
             "multi": true,
             "name": "topic",
             "options": [],
-            "query": "label_values(kafka_topic_partition_current_offset{namespace=\"$kubernetes_namespace\",strimzi_io_cluster=\"$strimzi_cluster_name\"}, topic)",
+            "query": {
+              "query": "label_values(kafka_topic_partition_current_offset{namespace=\"$kubernetes_namespace\",strimzi_io_cluster=\"$strimzi_cluster_name\"}, topic)",
+              "refId": "prometheus-topic-Variable-Query"
+            },
             "refresh": 1,
             "regex": "",
             "skipUrlSync": false,
@@ -1589,7 +1607,7 @@ data:
         ]
       },
       "time": {
-        "from": "now-1h",
+        "from": "now-10m",
         "to": "now"
       },
       "timepicker": {
@@ -1620,5 +1638,5 @@ data:
       "timezone": "browser",
       "title": "Strimzi Kafka-Exporter",
       "uid": "strimzi-kafka-exporter",
-      "version": 1
+      "version": 2
     }

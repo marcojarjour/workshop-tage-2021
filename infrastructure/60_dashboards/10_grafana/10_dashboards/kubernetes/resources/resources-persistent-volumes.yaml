@@ -507,7 +507,7 @@ data:
             ]
         },
         "time": {
-            "from": "now-7d",
+            "from": "now-10m",
             "to": "now"
         },
         "timepicker": {

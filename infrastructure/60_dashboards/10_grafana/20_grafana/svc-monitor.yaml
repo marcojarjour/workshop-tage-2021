@@ -6,6 +6,8 @@ spec:
   selector:
     matchLabels:
       app: grafana
+      domain: dashboards
+      feature: grafana
   namespaceSelector:
     matchNames:
       - monitoring

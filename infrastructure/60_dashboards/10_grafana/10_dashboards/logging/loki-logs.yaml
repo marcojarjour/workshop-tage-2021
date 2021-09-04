@@ -931,7 +931,7 @@ data:
           "type": "logs"
         }
       ],
-      "refresh": "1m",
+      "refresh": "10m",
       "schemaVersion": 26,
       "style": "dark",
       "tags": [
@@ -1122,7 +1122,7 @@ data:
         ]
       },
       "time": {
-        "from": "now-1h",
+        "from": "now-10m",
         "to": "now"
       },
       "timepicker": {

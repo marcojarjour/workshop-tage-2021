@@ -1982,7 +1982,7 @@ data:
             ]
         },
         "time": {
-            "from": "now-1h",
+            "from": "now-10m",
             "to": "now"
         },
         "timepicker": {

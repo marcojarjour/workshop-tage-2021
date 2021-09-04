@@ -24,8 +24,8 @@ data:
       "editable": true,
       "gnetId": null,
       "graphTooltip": 0,
-      "id": 69,
-      "iteration": 1607010677287,
+      "id": 49,
+      "iteration": 1630790417594,
       "links": [],
       "panels": [
         {
@@ -256,7 +256,7 @@ data:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "7.3.4",
+          "pluginVersion": "7.4.0-beta1",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -528,7 +528,7 @@ data:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "7.3.4",
+          "pluginVersion": "7.4.0-beta1",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -626,7 +626,7 @@ data:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "7.3.4",
+          "pluginVersion": "7.4.0-beta1",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -724,7 +724,7 @@ data:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "7.3.4",
+          "pluginVersion": "7.4.0-beta1",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -823,7 +823,7 @@ data:
           },
           "paceLength": 10,
           "percentage": false,
-          "pluginVersion": "7.3.4",
+          "pluginVersion": "7.4.0-beta1",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -921,7 +921,7 @@ data:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "7.3.4",
+          "pluginVersion": "7.4.0-beta1",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -1018,7 +1018,7 @@ data:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "7.3.4",
+          "pluginVersion": "7.4.0-beta1",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -1115,7 +1115,7 @@ data:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "7.3.4",
+          "pluginVersion": "7.4.0-beta1",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -1214,7 +1214,7 @@ data:
           },
           "paceLength": 10,
           "percentage": false,
-          "pluginVersion": "7.3.4",
+          "pluginVersion": "7.4.0-beta1",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -1312,7 +1312,7 @@ data:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "7.3.4",
+          "pluginVersion": "7.4.0-beta1",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -1410,7 +1410,7 @@ data:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "7.3.4",
+          "pluginVersion": "7.4.0-beta1",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -1508,7 +1508,7 @@ data:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "7.3.4",
+          "pluginVersion": "7.4.0-beta1",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -1567,8 +1567,8 @@ data:
           }
         }
       ],
-      "refresh": "1m",
-      "schemaVersion": 26,
+      "refresh": "30s",
+      "schemaVersion": 27,
       "style": "dark",
       "tags": [
         "brokers",
@@ -1581,11 +1581,12 @@ data:
             "allValue": null,
             "current": {
               "selected": false,
-              "text": "broker",
-              "value": "broker"
+              "text": "apps",
+              "value": "apps"
             },
             "datasource": "prometheus",
-            "definition": "",
+            "definition": "label_values(zookeeper_inmemorydatatree_nodecount, namespace)",
+            "description": null,
             "error": null,
             "hide": 0,
             "includeAll": false,
@@ -1593,9 +1594,12 @@ data:
             "multi": false,
             "name": "kubernetes_namespace",
             "options": [],
-            "query": "query_result(zookeeper_inmemorydatatree_nodecount)",
+            "query": {
+              "query": "label_values(zookeeper_inmemorydatatree_nodecount, namespace)",
+              "refId": "StandardVariableQuery"
+            },
             "refresh": 1,
-            "regex": "/.*namespace=\"([^\"]*).*/",
+            "regex": "",
             "skipUrlSync": false,
             "sort": 0,
             "tagValuesQuery": "",
@@ -1612,7 +1616,8 @@ data:
               "value": "strimzi"
             },
             "datasource": "prometheus",
-            "definition": "",
+            "definition": "label_values(zookeeper_inmemorydatatree_nodecount{namespace=\"$kubernetes_namespace\"}, strimzi_io_cluster)",
+            "description": null,
             "error": null,
             "hide": 0,
             "includeAll": false,
@@ -1620,9 +1625,12 @@ data:
             "multi": false,
             "name": "strimzi_cluster_name",
             "options": [],
-            "query": "query_result(zookeeper_inmemorydatatree_nodecount{namespace=\"$kubernetes_namespace\"})",
+            "query": {
+              "query": "label_values(zookeeper_inmemorydatatree_nodecount{namespace=\"$kubernetes_namespace\"}, strimzi_io_cluster)",
+              "refId": "StandardVariableQuery"
+            },
             "refresh": 1,
-            "regex": "/.*strimzi_io_cluster=\"([^\"]*).*/",
+            "regex": "",
             "skipUrlSync": false,
             "sort": 0,
             "tagValuesQuery": "",
@@ -1634,12 +1642,13 @@ data:
           {
             "allValue": ".*",
             "current": {
-              "selected": true,
+              "selected": false,
               "text": "All",
               "value": "$__all"
             },
             "datasource": "prometheus",
-            "definition": "",
+            "definition": "label_values(zookeeper_inmemorydatatree_nodecount{namespace=\"$kubernetes_namespace\",strimzi_io_cluster=\"$strimzi_cluster_name\"}, kubernetes_pod_name)",
+            "description": null,
             "error": null,
             "hide": 0,
             "includeAll": true,
@@ -1647,9 +1656,12 @@ data:
             "multi": false,
             "name": "zk_node",
             "options": [],
-            "query": "query_result(zookeeper_inmemorydatatree_nodecount{namespace=\"$kubernetes_namespace\",strimzi_io_cluster=\"$strimzi_cluster_name\"})",
+            "query": {
+              "query": "label_values(zookeeper_inmemorydatatree_nodecount{namespace=\"$kubernetes_namespace\",strimzi_io_cluster=\"$strimzi_cluster_name\"}, kubernetes_pod_name)",
+              "refId": "StandardVariableQuery"
+            },
             "refresh": 1,
-            "regex": "/.*statefulset_kubernetes_io_pod_name=\"$strimzi_cluster_name-([^\"]*).*/",
+            "regex": "",
             "skipUrlSync": false,
             "sort": 0,
             "tagValuesQuery": "",
@@ -1661,7 +1673,7 @@ data:
         ]
       },
       "time": {
-        "from": "now-1h",
+        "from": "now-10m",
         "to": "now"
       },
       "timepicker": {
@@ -1692,5 +1704,5 @@ data:
       "timezone": "",
       "title": "Strimzi Zookeeper",
       "uid": "strimzi-zookeeper",
-      "version": 1
+      "version": 2
     }

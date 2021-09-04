@@ -22,8 +22,8 @@ data:
       "editable": true,
       "gnetId": null,
       "graphTooltip": 0,
-      "id": 68,
-      "iteration": 1607010554587,
+      "id": 48,
+      "iteration": 1630790313600,
       "links": [],
       "panels": [
         {
@@ -787,7 +787,7 @@ data:
           },
           "paceLength": 10,
           "percentage": false,
-          "pluginVersion": "7.3.4",
+          "pluginVersion": "7.4.0-beta1",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -800,6 +800,7 @@ data:
               "expr": "sum(container_memory_usage_bytes{namespace=\"$kubernetes_namespace\",pod=~\"$strimzi_cluster_name-$kafka_broker\",container=\"kafka\"}) by (pod)",
               "format": "time_series",
               "hide": false,
+              "interval": "",
               "intervalFactor": 1,
               "legendFormat": "{{pod}}",
               "refId": "A"
@@ -825,6 +826,7 @@ data:
           },
           "yaxes": [
             {
+              "$$hashKey": "object:1098",
               "format": "bytes",
               "label": null,
               "logBase": 1,
@@ -833,6 +835,7 @@ data:
               "show": true
             },
             {
+              "$$hashKey": "object:1099",
               "format": "short",
               "label": null,
               "logBase": 1,
@@ -887,7 +890,7 @@ data:
           },
           "paceLength": 10,
           "percentage": false,
-          "pluginVersion": "7.3.4",
+          "pluginVersion": "7.4.0-beta1",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -987,7 +990,7 @@ data:
           },
           "paceLength": 10,
           "percentage": false,
-          "pluginVersion": "7.3.4",
+          "pluginVersion": "7.4.0-beta1",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -1087,7 +1090,7 @@ data:
           },
           "paceLength": 10,
           "percentage": false,
-          "pluginVersion": "7.3.4",
+          "pluginVersion": "7.4.0-beta1",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -1186,7 +1189,7 @@ data:
           },
           "paceLength": 10,
           "percentage": false,
-          "pluginVersion": "7.3.4",
+          "pluginVersion": "7.4.0-beta1",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -1284,7 +1287,7 @@ data:
           },
           "paceLength": 10,
           "percentage": false,
-          "pluginVersion": "7.3.4",
+          "pluginVersion": "7.4.0-beta1",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -1382,7 +1385,7 @@ data:
           },
           "paceLength": 10,
           "percentage": false,
-          "pluginVersion": "7.3.4",
+          "pluginVersion": "7.4.0-beta1",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -1481,7 +1484,7 @@ data:
           },
           "paceLength": 10,
           "percentage": false,
-          "pluginVersion": "7.3.4",
+          "pluginVersion": "7.4.0-beta1",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -1944,7 +1947,7 @@ data:
           },
           "paceLength": 10,
           "percentage": false,
-          "pluginVersion": "7.3.4",
+          "pluginVersion": "7.4.0-beta1",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -2055,7 +2058,7 @@ data:
           },
           "paceLength": 10,
           "percentage": false,
-          "pluginVersion": "7.3.4",
+          "pluginVersion": "7.4.0-beta1",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -2154,7 +2157,7 @@ data:
           },
           "paceLength": 10,
           "percentage": false,
-          "pluginVersion": "7.3.4",
+          "pluginVersion": "7.4.0-beta1",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -2261,7 +2264,7 @@ data:
           },
           "paceLength": 10,
           "percentage": false,
-          "pluginVersion": "7.3.4",
+          "pluginVersion": "7.4.0-beta1",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -2367,7 +2370,7 @@ data:
           },
           "paceLength": 10,
           "percentage": false,
-          "pluginVersion": "7.3.4",
+          "pluginVersion": "7.4.0-beta1",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -2466,7 +2469,7 @@ data:
           },
           "paceLength": 10,
           "percentage": false,
-          "pluginVersion": "7.3.4",
+          "pluginVersion": "7.4.0-beta1",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -2566,7 +2569,7 @@ data:
           },
           "paceLength": 10,
           "percentage": false,
-          "pluginVersion": "7.3.4",
+          "pluginVersion": "7.4.0-beta1",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -2666,7 +2669,7 @@ data:
           },
           "paceLength": 10,
           "percentage": false,
-          "pluginVersion": "7.3.4",
+          "pluginVersion": "7.4.0-beta1",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -2766,7 +2769,7 @@ data:
           },
           "paceLength": 10,
           "percentage": false,
-          "pluginVersion": "7.3.4",
+          "pluginVersion": "7.4.0-beta1",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -2865,7 +2868,7 @@ data:
           },
           "paceLength": 10,
           "percentage": false,
-          "pluginVersion": "7.3.4",
+          "pluginVersion": "7.4.0-beta1",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -2925,8 +2928,8 @@ data:
           }
         }
       ],
-      "refresh": "1m",
-      "schemaVersion": 26,
+      "refresh": "30s",
+      "schemaVersion": 27,
       "style": "dark",
       "tags": [
         "brokers",
@@ -2938,12 +2941,13 @@ data:
           {
             "allValue": null,
             "current": {
-              "selected": true,
-              "text": "broker",
-              "value": "broker"
+              "selected": false,
+              "text": "apps",
+              "value": "apps"
             },
             "datasource": "prometheus",
-            "definition": "",
+            "definition": "label_values(kafka_server_replicamanager_leadercount, namespace)",
+            "description": null,
             "error": null,
             "hide": 0,
             "includeAll": false,
@@ -2951,9 +2955,12 @@ data:
             "multi": false,
             "name": "kubernetes_namespace",
             "options": [],
-            "query": "query_result(kafka_server_replicamanager_leadercount)",
+            "query": {
+              "query": "label_values(kafka_server_replicamanager_leadercount, namespace)",
+              "refId": "StandardVariableQuery"
+            },
             "refresh": 1,
-            "regex": "/.*namespace=\"([^\"]*).*/",
+            "regex": "",
             "skipUrlSync": false,
             "sort": 0,
             "tagValuesQuery": "",
@@ -2965,12 +2972,13 @@ data:
           {
             "allValue": null,
             "current": {
-              "selected": true,
+              "selected": false,
               "text": "strimzi",
               "value": "strimzi"
             },
             "datasource": "prometheus",
-            "definition": "",
+            "definition": "label_values(kafka_server_replicamanager_leadercount{namespace=\"$kubernetes_namespace\"}, strimzi_io_cluster)",
+            "description": null,
             "error": null,
             "hide": 0,
             "includeAll": false,
@@ -2978,9 +2986,12 @@ data:
             "multi": false,
             "name": "strimzi_cluster_name",
             "options": [],
-            "query": "query_result(kafka_server_replicamanager_leadercount{namespace=\"$kubernetes_namespace\"})",
+            "query": {
+              "query": "label_values(kafka_server_replicamanager_leadercount{namespace=\"$kubernetes_namespace\"}, strimzi_io_cluster)",
+              "refId": "StandardVariableQuery"
+            },
             "refresh": 1,
-            "regex": "/.*strimzi_io_cluster=\"([^\"]*).*/",
+            "regex": "",
             "skipUrlSync": false,
             "sort": 0,
             "tagValuesQuery": "",
@@ -2992,12 +3003,13 @@ data:
           {
             "allValue": ".*",
             "current": {
-              "selected": true,
+              "selected": false,
               "text": "All",
               "value": "$__all"
             },
             "datasource": "prometheus",
-            "definition": "",
+            "definition": "label_values(kafka_server_replicamanager_leadercount{namespace=\"$kubernetes_namespace\",strimzi_io_cluster=\"$strimzi_cluster_name\"}, kubernetes_pod_name)",
+            "description": null,
             "error": null,
             "hide": 0,
             "includeAll": true,
@@ -3005,9 +3017,12 @@ data:
             "multi": false,
             "name": "kafka_broker",
             "options": [],
-            "query": "query_result(kafka_server_replicamanager_leadercount{namespace=\"$kubernetes_namespace\",strimzi_io_cluster=\"$strimzi_cluster_name\"})",
+            "query": {
+              "query": "label_values(kafka_server_replicamanager_leadercount{namespace=\"$kubernetes_namespace\",strimzi_io_cluster=\"$strimzi_cluster_name\"}, kubernetes_pod_name)",
+              "refId": "StandardVariableQuery"
+            },
             "refresh": 1,
-            "regex": "/.*statefulset_kubernetes_io_pod_name=\"$strimzi_cluster_name-([^\"]*).*/",
+            "regex": "",
             "skipUrlSync": false,
             "sort": 0,
             "tagValuesQuery": "",
@@ -3024,7 +3039,8 @@ data:
               "value": "$__all"
             },
             "datasource": "prometheus",
-            "definition": "",
+            "definition": "label_values(kafka_cluster_partition_replicascount{namespace=\"$kubernetes_namespace\",strimzi_io_cluster=\"$strimzi_cluster_name\",kubernetes_pod_name=~\"$strimzi_cluster_name-$kafka_broker\"}, topic)",
+            "description": null,
             "error": null,
             "hide": 0,
             "includeAll": true,
@@ -3032,9 +3048,12 @@ data:
             "multi": false,
             "name": "kafka_topic",
             "options": [],
-            "query": "query_result(kafka_cluster_partition_replicascount{namespace=\"$kubernetes_namespace\",strimzi_io_cluster=\"$strimzi_cluster_name\",kubernetes_pod_name=~\"$strimzi_cluster_name-$kafka_broker\"})",
+            "query": {
+              "query": "label_values(kafka_cluster_partition_replicascount{namespace=\"$kubernetes_namespace\",strimzi_io_cluster=\"$strimzi_cluster_name\",kubernetes_pod_name=~\"$strimzi_cluster_name-$kafka_broker\"}, topic)",
+              "refId": "StandardVariableQuery"
+            },
             "refresh": 1,
-            "regex": "/.*topic=\"([^\"]*).*/",
+            "regex": "",
             "skipUrlSync": false,
             "sort": 0,
             "tagValuesQuery": "",
@@ -3051,7 +3070,8 @@ data:
               "value": "$__all"
             },
             "datasource": "prometheus",
-            "definition": "",
+            "definition": "label_values(kafka_log_log_size{namespace=\"$kubernetes_namespace\",strimzi_io_cluster=\"$strimzi_cluster_name\",kubernetes_pod_name=~\"$strimzi_cluster_name-$kafka_broker\",topic=~\"$kafka_topic\"}, partition)",
+            "description": null,
             "error": null,
             "hide": 0,
             "includeAll": true,
@@ -3059,9 +3079,12 @@ data:
             "multi": true,
             "name": "kafka_partition",
             "options": [],
-            "query": "query_result(kafka_log_log_size{namespace=\"$kubernetes_namespace\",strimzi_io_cluster=\"$strimzi_cluster_name\",kubernetes_pod_name=~\"$strimzi_cluster_name-$kafka_broker\",topic=~\"$kafka_topic\"})",
+            "query": {
+              "query": "label_values(kafka_log_log_size{namespace=\"$kubernetes_namespace\",strimzi_io_cluster=\"$strimzi_cluster_name\",kubernetes_pod_name=~\"$strimzi_cluster_name-$kafka_broker\",topic=~\"$kafka_topic\"}, partition)",
+              "refId": "StandardVariableQuery"
+            },
             "refresh": 1,
-            "regex": "/.*partition=\"([^\"]*).*/",
+            "regex": "",
             "skipUrlSync": false,
             "sort": 3,
             "tagValuesQuery": "",
@@ -3073,7 +3096,7 @@ data:
         ]
       },
       "time": {
-        "from": "now-1h",
+        "from": "now-10m",
         "to": "now"
       },
       "timepicker": {
@@ -3104,5 +3127,5 @@ data:
       "timezone": "",
       "title": "Strimzi Kafka",
       "uid": "strimzi-kafka",
-      "version": 1
+      "version": 4
     }

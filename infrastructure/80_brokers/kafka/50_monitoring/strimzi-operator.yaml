@@ -9,7 +9,6 @@ spec:
       domain: apps
       feature: kafka
       group: operators
-      component: cluster-operator
   endpoints:
     - port: http
       interval: 15s

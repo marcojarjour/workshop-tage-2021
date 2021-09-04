@@ -3292,7 +3292,7 @@ data:
         ]
       },
       "time": {
-        "from": "now-5m",
+        "from": "now-10m",
         "to": "now"
       },
       "timepicker": {
