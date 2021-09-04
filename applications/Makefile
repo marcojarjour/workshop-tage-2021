@@ -25,11 +25,10 @@ __check-container-tag-all :
 
 container-build-push-all : __check-container-tag-all		## Build and push ontainers of all applications
 	cd standalone/ && make container-build container-push CONTAINER_TAG=$(CONTAINER_TAG)
-	cd http-client/ && make container-build container-push CONTAINER_TAG=$(CONTAINER_TAG)
-	cd http-server/ && make container-build container-push CONTAINER_TAG=$(CONTAINER_TAG)
-	cd http-server-db/ && make container-build container-push CONTAINER_TAG=$(CONTAINER_TAG)
 	cd grpc-client/ && make container-build container-push CONTAINER_TAG=$(CONTAINER_TAG)
 	cd grpc-server/ && make container-build container-push CONTAINER_TAG=$(CONTAINER_TAG)
+	cd http-client/ && make container-build container-push CONTAINER_TAG=$(CONTAINER_TAG)
+	cd http-server-db/ && make container-build container-push CONTAINER_TAG=$(CONTAINER_TAG)
 	cd kafka-consumer/ && make container-build container-push CONTAINER_TAG=$(CONTAINER_TAG)
 	cd kafka-producer/ && make container-build container-push CONTAINER_TAG=$(CONTAINER_TAG)
 

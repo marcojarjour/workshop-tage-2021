@@ -1,7 +1,7 @@
 
 # --- buider stage
 
-FROM golang:1.15-buster AS builder
+FROM golang:1.17-buster AS builder
 
 # Set working directory
 WORKDIR /src

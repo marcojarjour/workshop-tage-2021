@@ -1,5 +1,5 @@
 # buider stage
-FROM golang:1.16-stretch as builder
+FROM golang:1.17-stretch as builder
 
 # Set working directory
 WORKDIR /src
