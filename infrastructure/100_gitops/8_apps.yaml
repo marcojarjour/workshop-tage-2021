@@ -17,7 +17,7 @@ spec:
   project: in-cluster
   source:
     repoURL: https://github.com/bygui86/workshop-tage-2021
-    targetRevision: main
+    targetRevision: feature/wt21
     path: infrastructure/100_gitops/8_apps
   destination:
     name: in-cluster
