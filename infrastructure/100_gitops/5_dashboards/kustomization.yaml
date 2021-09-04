@@ -5,10 +5,8 @@ namespace: argocd
 
 resources:
   # using ArgoCD sync-wave feature to deploy in this exact order
-  - prometheus.yaml
-  - kube-state-metrics.yaml
-  - node-exporter.yaml
+  - grafana.yaml
 
 commonLabels:
-  domain: monitoring
+  domain: dashboards
   group: apps

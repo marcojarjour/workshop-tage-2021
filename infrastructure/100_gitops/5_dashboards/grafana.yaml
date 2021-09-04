@@ -1,24 +1,20 @@
-
-# APP-OF-APPS
-
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: apps
+  name: grafana
   labels:
-    group: app-of-apps
-    feature: apps
+    feature: grafana
   annotations:
-    argocd.argoproj.io/sync-wave: "7"
+    argocd.argoproj.io/sync-wave: "1"
 spec:
   project: in-cluster
   source:
     repoURL: https://github.com/bygui86/workshop-tage-2021
     targetRevision: master
-    path: infrastructure/100_gitops/7_apps
+    path: infrastructure/60_grafana
   destination:
     name: in-cluster
-    namespace: argocd
+    namespace: dashboards
   syncPolicy:
     automated:
       prune: true
@@ -26,9 +22,9 @@ spec:
     syncOptions:
       - CreateNamespace=true
       - ApplyOutOfSyncOnly=true
-      - PrunePropagationPolicy=foreground
+      - PrunePropagationPolicy=background
     retry:
-      limit: 5
+      limit: 10
       backoff:
         duration: 5s
         factor: 2
