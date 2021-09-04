@@ -102,7 +102,7 @@ spec:
   selector:
     matchLabels:
       app: strimzi
-      domain: broker
+      domain: apps
       feature: kafka
       component: kafka-exporter
   endpoints:
@@ -148,7 +148,7 @@ spec:
   selector:
     matchLabels:
       app: strimzi
-      domain: broker
+      domain: apps
       feature: kafka
       component: entity-operator
   endpoints:

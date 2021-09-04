@@ -41,7 +41,7 @@ spec:
         metadata:
           labels:
             app: strimzi
-            domain: broker
+            domain: apps
             feature: kafka
             group: clusters
             component: kafka
@@ -49,7 +49,7 @@ spec:
         metadata:
           labels:
             app: strimzi
-            domain: broker
+            domain: apps
             feature: kafka
             group: clusters
             component: kafka
@@ -58,7 +58,7 @@ spec:
         metadata:
           labels:
             app: strimzi
-            domain: broker
+            domain: apps
             feature: kafka
             group: clusters
             component: kafka
@@ -66,7 +66,7 @@ spec:
         metadata:
           labels:
             app: strimzi
-            domain: broker
+            domain: apps
             feature: kafka
             group: clusters
             component: kafka
@@ -267,7 +267,7 @@ spec:
         metadata:
           labels:
             app: strimzi
-            domain: broker
+            domain: apps
             feature: kafka
             group: clusters
             component: zookeeper
@@ -275,7 +275,7 @@ spec:
         metadata:
           labels:
             app: strimzi
-            domain: broker
+            domain: apps
             feature: kafka
             group: clusters
             component: zookeeper
@@ -284,7 +284,7 @@ spec:
         metadata:
           labels:
             app: strimzi
-            domain: broker
+            domain: apps
             feature: kafka
             group: clusters
             component: zookeeper
@@ -292,7 +292,7 @@ spec:
         metadata:
           labels:
             app: strimzi
-            domain: broker
+            domain: apps
             feature: kafka
             group: clusters
             component: zookeeper
@@ -344,7 +344,7 @@ spec:
   # WORK IN PROGRESS
   entityOperator:
     topicOperator:
-      watchedNamespace: broker
+      watchedNamespace: apps
       resources:
         requests:
           cpu: 250m
@@ -363,7 +363,7 @@ spec:
         metadata:
           labels:
             app: strimzi
-            domain: broker
+            domain: apps
             feature: kafka
             group: operators
             component: entity-operator
@@ -371,7 +371,7 @@ spec:
         metadata:
           labels:
             app: strimzi
-            domain: broker
+            domain: apps
             feature: kafka
             group: operators
             component: entity-operator
@@ -411,7 +411,7 @@ spec:
         metadata:
           labels:
             app: strimzi
-            domain: broker
+            domain: apps
             feature: kafka
             group: exporters
             component: kafka-exporter
@@ -419,7 +419,7 @@ spec:
         metadata:
           labels:
             app: strimzi
-            domain: broker
+            domain: apps
             feature: kafka
             group: exporters
             component: kafka-exporter
@@ -427,7 +427,7 @@ spec:
         metadata:
           labels:
             app: strimzi
-            domain: broker
+            domain: apps
             feature: kafka
             group: exporters
             component: kafka-exporter

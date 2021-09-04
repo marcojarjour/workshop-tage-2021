@@ -8,7 +8,7 @@ metadata:
 spec:
   selector:
     app: strimzi
-    domain: broker
+    domain: apps
     feature: kafka
     component: kafka
     strimzi.io/name: strimzi-kafka
@@ -28,7 +28,7 @@ metadata:
 spec:
   selector:
     app: strimzi
-    domain: broker
+    domain: apps
     feature: kafka
     component: zookeeper
     strimzi.io/name: strimzi-zookeeper
@@ -48,7 +48,7 @@ metadata:
 spec:
   selector:
     app: strimzi
-    domain: broker
+    domain: apps
     feature: kafka
     component: kafka-exporter
     strimzi.io/name: strimzi-kafka-exporter
@@ -68,7 +68,7 @@ metadata:
 spec:
   selector:
     app: strimzi
-    domain: broker
+    domain: apps
     feature: kafka
     # component: entity-operator
     strimzi.io/name: strimzi-entity-operator
