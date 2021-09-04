@@ -9,7 +9,7 @@
 
 ## CIVO
 
-```shell
+```bash
 # Set region for civo-cli
 civo region current LON1
 
@@ -26,6 +26,6 @@ No Kubernetes clusters found for 'wt21'. Please check your query.
 
 ## LOCAL (MINIKUBE)
 
-```shell
+```bash
 minikube stop && minikube delete
 ```

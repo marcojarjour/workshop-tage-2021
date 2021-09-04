@@ -3,7 +3,7 @@
 
 ## kubectl
 
-```shell
+```bash
 # change context (cluster)
 kubectl config use-context <CTX_NAME>
 

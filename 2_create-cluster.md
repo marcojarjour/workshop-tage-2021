@@ -9,7 +9,7 @@
 
 `TODO`
 
-```shell
+```bash
 # Create cluster
 ...
 
@@ -23,7 +23,7 @@ kubectl get nodes
 
 ## CIVO
 
-```shell
+```bash
 # Set region for civo-cli
 civo region current LON1
 
@@ -46,7 +46,7 @@ kubectl get nodes
 
 Please choose the best driver based on your local environment.
 
-```shell
+```bash
 # Start Minikube with Docker driver
 minikube start --driver=docker --cpus=8 --memory=12288 --disk-size=50g
 
