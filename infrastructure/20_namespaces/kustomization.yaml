@@ -4,6 +4,7 @@ kind: Kustomization
 
 resources:
   - apps.yaml
+  - dashboards.yaml
   - logging.yaml
   - monitoring.yaml
   - tracing.yaml

@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: dashboards
+  labels:
+    name: dashboards
+    domain: dashboards
+  annotations:
+    description: "Namespace for Dashboards"
