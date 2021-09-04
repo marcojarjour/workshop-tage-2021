@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: standalone
+  name: standalone-apps
   labels:
     feature: standalone
   # annotations:
