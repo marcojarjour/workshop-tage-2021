@@ -7,6 +7,8 @@ namespace: apps
 resources:
   - configmap.yaml
   - deployment.yaml
+  - service.yaml
+  - svc-monitor.yaml
 
 commonLabels:
   app: standalone
