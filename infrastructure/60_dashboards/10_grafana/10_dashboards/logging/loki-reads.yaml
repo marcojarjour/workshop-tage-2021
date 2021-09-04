@@ -756,7 +756,7 @@ data:
             "multi": false,
             "name": "namespace",
             "options": [],
-            "query": "label_values(kube_pod_container_info{image=~\".*loki.*\"}, namespace)",
+            "query": "label_values(kube_pod_container_info{container=~\".*loki.*\"}, namespace)",
             "refresh": 1,
             "regex": "",
             "skipUrlSync": false,

@@ -5956,7 +5956,7 @@ data:
             "multi": false,
             "name": "namespace",
             "options": [],
-            "query": "label_values(kube_pod_container_info, namespace)",
+            "query": "label_values(kube_pod_container_info{container=~\".*loki.*\"}, namespace)",
             "refresh": 1,
             "regex": "",
             "skipUrlSync": false,
