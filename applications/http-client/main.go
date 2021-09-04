@@ -38,6 +38,10 @@ func main() {
 
 	if cfg.GetEnableMonitoring() {
 		monitoringServer = startMonitoringServer()
+
+		if cfg.GetEnableCustomMetrics() {
+			registerCustomMetrics()
+		}
 	}
 
 	if cfg.GetEnableTracing() {
@@ -82,6 +86,11 @@ func startMonitoringServer() *monitoring.Server {
 	return server
 }
 
+func registerCustomMetrics() {
+	logging.Log.Debug("Register custom metrics")
+	monitoring.RegisterCustomMetrics()
+}
+
 func initJaegerTracer() io.Closer {
 	logging.Log.Debug("Init Jaeger tracer")
 	closer, err := tracing.InitTracer()
@@ -118,8 +127,6 @@ func startRestServer() *rest.Server {
 		os.Exit(502)
 	}
 	logging.Log.Debug("REST server successfully started")
-
-	rest.RegisterCustomMetrics()
 
 	return server
 }

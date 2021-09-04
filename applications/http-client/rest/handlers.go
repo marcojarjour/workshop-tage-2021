@@ -13,6 +13,7 @@ import (
 
 	"github.com/bygui86/go-traces/http-client/commons"
 	"github.com/bygui86/go-traces/http-client/logging"
+	"github.com/bygui86/go-traces/http-client/monitoring"
 )
 
 // TODO reduce code duplication
@@ -86,8 +87,9 @@ func (s *Server) getProducts(writer http.ResponseWriter, request *http.Request) 
 
 	sendJsonResponse(writer, http.StatusOK, products)
 
-	IncreaseRestRequests("getProducts")
-	ObserveRestRequestsTime("getProducts", float64(time.Now().Sub(startTimer).Milliseconds()))
+	monitoring.IncreaseOpsCounter(commons.ServiceName)
+	monitoring.IncreaseHttpRequests(commons.ServiceName, "getProducts")
+	monitoring.ObserveHttpRequestsTime(commons.ServiceName, "getProducts", float64(time.Now().Sub(startTimer).Milliseconds()))
 }
 
 func (s *Server) getProduct(writer http.ResponseWriter, request *http.Request) {
@@ -170,8 +172,9 @@ func (s *Server) getProduct(writer http.ResponseWriter, request *http.Request) {
 
 	sendJsonResponse(writer, http.StatusOK, product)
 
-	IncreaseRestRequests("getProduct")
-	ObserveRestRequestsTime("getProduct", float64(time.Now().Sub(startTimer).Milliseconds()))
+	monitoring.IncreaseOpsCounter(commons.ServiceName)
+	monitoring.IncreaseHttpRequests(commons.ServiceName, "getProduct")
+	monitoring.ObserveHttpRequestsTime(commons.ServiceName, "getProduct", float64(time.Now().Sub(startTimer).Milliseconds()))
 }
 
 func (s *Server) createProduct(writer http.ResponseWriter, request *http.Request) {
@@ -259,8 +262,9 @@ func (s *Server) createProduct(writer http.ResponseWriter, request *http.Request
 
 	sendJsonResponse(writer, http.StatusCreated, product)
 
-	IncreaseRestRequests("createProduct")
-	ObserveRestRequestsTime("createProduct", float64(time.Now().Sub(startTimer).Milliseconds()))
+	monitoring.IncreaseOpsCounter(commons.ServiceName)
+	monitoring.IncreaseHttpRequests(commons.ServiceName, "createProduct")
+	monitoring.ObserveHttpRequestsTime(commons.ServiceName, "createProduct", float64(time.Now().Sub(startTimer).Milliseconds()))
 }
 
 func (s *Server) updateProduct(writer http.ResponseWriter, request *http.Request) {
@@ -360,8 +364,9 @@ func (s *Server) updateProduct(writer http.ResponseWriter, request *http.Request
 
 	sendJsonResponse(writer, http.StatusCreated, product)
 
-	IncreaseRestRequests("updateProduct")
-	ObserveRestRequestsTime("updateProduct", float64(time.Now().Sub(startTimer).Milliseconds()))
+	monitoring.IncreaseOpsCounter(commons.ServiceName)
+	monitoring.IncreaseHttpRequests(commons.ServiceName, "updateProduct")
+	monitoring.ObserveHttpRequestsTime(commons.ServiceName, "updateProduct", float64(time.Now().Sub(startTimer).Milliseconds()))
 }
 
 func (s *Server) deleteProduct(writer http.ResponseWriter, request *http.Request) {
@@ -432,6 +437,7 @@ func (s *Server) deleteProduct(writer http.ResponseWriter, request *http.Request
 
 	sendJsonResponse(writer, http.StatusOK, map[string]string{"result": "success"})
 
-	IncreaseRestRequests("deleteProduct")
-	ObserveRestRequestsTime("deleteProduct", float64(time.Now().Sub(startTimer).Milliseconds()))
+	monitoring.IncreaseOpsCounter(commons.ServiceName)
+	monitoring.IncreaseHttpRequests(commons.ServiceName, "deleteProduct")
+	monitoring.ObserveHttpRequestsTime(commons.ServiceName, "deleteProduct", float64(time.Now().Sub(startTimer).Milliseconds()))
 }

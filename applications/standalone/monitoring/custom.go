@@ -19,5 +19,5 @@ func RegisterCustomMetrics() {
 }
 
 func IncreaseOpsCounter(app string) {
-	opsCounter.WithLabelValues(app).Inc()
+	go opsCounter.WithLabelValues(app).Inc()
 }

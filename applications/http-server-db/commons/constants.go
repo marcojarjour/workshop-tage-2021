@@ -3,7 +3,7 @@ package commons
 import "time"
 
 const (
-	ServiceName = "http-server-db"
+	ServiceName = "http-server"
 
 	HttpServerHostFormat          = "%s:%d"
 	HttpServerWriteTimeoutDefault = time.Second * 15

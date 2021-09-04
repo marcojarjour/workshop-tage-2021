@@ -1,7 +1,8 @@
 package config
 
 type Config struct {
-	enableMonitoring bool
-	enableTracing    bool
-	tracingTech      string
+	enableMonitoring    bool
+	enableCustomMetrics bool
+	enableTracing       bool
+	tracingTech         string
 }
