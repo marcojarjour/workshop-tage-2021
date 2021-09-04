@@ -55,7 +55,7 @@ kustomize build 60_grafana/ | kubectl apply -f -
 ```bash
 kubectl port-forward svc/prometheus 9090 -n monitoring
 kubectl port-forward svc/grafana 3000 -n monitoring
-kubectl port-forward svc/jaeger-query 16686 -n tracing
+kubectl port-forward svc/jaeger-query 16686 -n dashboards
 ```
 
 ---
