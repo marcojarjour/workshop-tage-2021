@@ -5,7 +5,10 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: brokers
+  namespace: argocd
   labels:
+    app: argocd
+    domain: gitops
     group: app-of-apps
     feature: brokers
   annotations:
@@ -14,7 +17,7 @@ spec:
   project: in-cluster
   source:
     repoURL: https://github.com/bygui86/workshop-tage-2021
-    targetRevision: master
+    targetRevision: main
     path: infrastructure/100_gitops/7_brokers
   destination:
     name: in-cluster

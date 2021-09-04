@@ -2,7 +2,10 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: namespaces
+  namespace: argocd
   labels:
+    app: argocd
+    domain: gitops
     group: apps
     feature: namespaces
   annotations:
@@ -11,7 +14,7 @@ spec:
   project: in-cluster
   source:
     repoURL: https://github.com/bygui86/workshop-tage-2021
-    targetRevision: master
+    targetRevision: main
     path: infrastructure/20_namespaces
   destination:
     name: in-cluster

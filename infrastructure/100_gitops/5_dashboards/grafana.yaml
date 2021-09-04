@@ -10,7 +10,7 @@ spec:
   project: in-cluster
   source:
     repoURL: https://github.com/bygui86/workshop-tage-2021
-    targetRevision: master
+    targetRevision: main
     path: infrastructure/60_grafana
   destination:
     name: in-cluster

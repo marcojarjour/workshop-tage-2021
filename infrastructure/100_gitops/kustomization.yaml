@@ -1,18 +1,19 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
-namespace: argocd
+# namespace: argocd
 
 resources:
   # using ArgoCD sync-wave feature to deploy in this exact order
   - 1_namespaces.yaml
-  # - 2_monitoring.yaml
-  # - 3_logging.yaml
-  # - 4_tracing.yaml
-  # - 5_databases.yaml
-  # - 6_brokers.yaml
-  # - 7_apps.yaml
+  - 2_monitoring.yaml
+  - 3_logging.yaml
+  - 4_tracing.yaml
+  - 5_dashboards.yaml
+  - 6_databases.yaml
+  - 7_brokers.yaml
+  - 8_apps.yaml
 
-commonLabels:
-  app: argocd
-  domain: gitops
+# commonLabels:
+#   app: argocd
+#   domain: gitops
