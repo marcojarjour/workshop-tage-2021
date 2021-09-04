@@ -1,11 +1,11 @@
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
-  name: http-client-db
+  name: http-server
 spec:
   selector:
     matchLabels:
-      app: http-client-db
+      app: http-server
   namespaceSelector:
     matchNames:
       - apps

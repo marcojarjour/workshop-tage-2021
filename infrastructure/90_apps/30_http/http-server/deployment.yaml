@@ -1,25 +1,36 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: http-client-db
+  name: http-server
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: http-client-db
+      app: http-server
   template:
     metadata:
       labels:
-        app: http-client-db
+        app: http-server
     spec:
       terminationGracePeriodSeconds: 15
       containers:
-        - name: http-client
-          image: bygui86/http-client:v1.0.0
+        - name: http-server-db
+          image: bygui86/http-server-db:v1.0.0
           imagePullPolicy: Always
+          env:
+            - name: DB_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: postgresql
+                  key: POSTGRES_USER
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgresql
+                  key: POSTGRES_PASSWORD
           envFrom:
             - configMapRef:
-                name: http-client-db
+                name: http-server
           ports:
             - name: http
               containerPort: 8080

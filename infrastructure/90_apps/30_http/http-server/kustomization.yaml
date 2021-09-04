@@ -11,7 +11,7 @@ resources:
   - svc-monitor.yaml
 
 commonLabels:
-  app: http-server-db
+  app: http-server
   domain: apps
   feature: http
 
