@@ -12,7 +12,6 @@ spec:
     - group: "*"
       kind: "*"
   sourceRepos:
-    - https://gitlab.com/sbt-devops/devops
-    - https://gitlab.com/sbt-devops/ci-cd/cicd-devops
+    - "*"
   orphanedResources:
       warn: true
