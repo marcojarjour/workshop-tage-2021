@@ -4,11 +4,10 @@ kind: Kustomization
 namespace: argocd
 
 resources:
-  # using ArgoCD sync-wave feature to deploy in this exact order
-  - standalone.yaml
-  - grpc.yaml
-  - http.yaml
-  - broker.yaml
+  - 1_standalone.yaml
+  # - 2_grpc.yaml
+  # - 3_http.yaml
+  # - 4_broker.yaml
 
 commonLabels:
   domain: apps

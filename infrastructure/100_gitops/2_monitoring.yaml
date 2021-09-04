@@ -15,7 +15,7 @@ spec:
   source:
     repoURL: https://github.com/bygui86/workshop-tage-2021
     targetRevision: master
-    path: infrastructure/100_gitops/monitoring
+    path: infrastructure/100_gitops/2_monitoring
   destination:
     name: in-cluster
     namespace: argocd

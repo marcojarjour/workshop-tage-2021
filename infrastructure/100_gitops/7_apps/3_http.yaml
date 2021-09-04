@@ -4,8 +4,8 @@ metadata:
   name: http
   labels:
     feature: http
-  annotations:
-    argocd.argoproj.io/sync-wave: "3"
+  # annotations:
+  #   argocd.argoproj.io/sync-wave: "3"
 spec:
   project: in-cluster
   source:

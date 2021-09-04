@@ -1,17 +1,17 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: grpc
+  name: standalone
   labels:
-    feature: grpc
-  annotations:
-    argocd.argoproj.io/sync-wave: "2"
+    feature: standalone
+  # annotations:
+  #   argocd.argoproj.io/sync-wave: "1"
 spec:
   project: in-cluster
   source:
     repoURL: https://github.com/bygui86/workshop-tage-2021
     targetRevision: master
-    path: infrastructure/90_apps/20_grpc
+    path: infrastructure/90_apps/10_standalone
   destination:
     name: in-cluster
     namespace: apps

@@ -6,12 +6,12 @@ namespace: argocd
 resources:
   # using ArgoCD sync-wave feature to deploy in this exact order
   - 1_namespaces.yaml
-  - 2_monitoring.yaml
-  - 3_logging.yaml
-  - 4_tracing.yaml
-  - 5_databases.yaml
-  - 6_brokers.yaml
-  - 7_apps.yaml
+  # - 2_monitoring.yaml
+  # - 3_logging.yaml
+  # - 4_tracing.yaml
+  # - 5_databases.yaml
+  # - 6_brokers.yaml
+  # - 7_apps.yaml
 
 commonLabels:
   app: argocd

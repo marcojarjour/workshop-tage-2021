@@ -15,7 +15,7 @@ spec:
   source:
     repoURL: https://github.com/bygui86/workshop-tage-2021
     targetRevision: master
-    path: infrastructure/100_gitops/databases
+    path: infrastructure/100_gitops/5_databases
   destination:
     name: in-cluster
     namespace: argocd

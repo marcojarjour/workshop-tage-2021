@@ -4,8 +4,8 @@ metadata:
   name: broker
   labels:
     feature: broker
-  annotations:
-    argocd.argoproj.io/sync-wave: "4"
+  # annotations:
+  #   argocd.argoproj.io/sync-wave: "4"
 spec:
   project: in-cluster
   source:
