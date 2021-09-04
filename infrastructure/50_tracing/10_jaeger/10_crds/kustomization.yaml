@@ -7,7 +7,6 @@ resources:
 
 commonLabels:
   app: jaeger-operator
-  domain: tracing
   group: crds
 
 commonAnnotations:

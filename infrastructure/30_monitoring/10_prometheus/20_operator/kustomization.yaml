@@ -14,9 +14,7 @@ resources:
 
 commonLabels:
   app: prometheus-operator
-  domain: monitoring
   group: operators
-  feature: prometheus
   component: controller
 
 commonAnnotations:

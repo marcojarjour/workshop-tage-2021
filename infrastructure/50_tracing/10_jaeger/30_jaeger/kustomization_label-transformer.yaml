@@ -9,8 +9,8 @@ metadata:
   name: notImportantHere
 labels:
   app: jaeger
-  domain: tracing
-  feature: jaeger
+  # domain: tracing
+  # feature: jaeger
 fieldSpecs:
   - path: metadata/labels
     create: true

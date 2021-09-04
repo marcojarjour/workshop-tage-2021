@@ -8,8 +8,6 @@ resources:
 
 commonLabels:
   app: prometheus
-  domain: monitoring
-  feature: prometheus
 
 commonAnnotations:
   version: v2.23.0
