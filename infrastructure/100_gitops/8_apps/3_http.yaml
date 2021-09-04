@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: http
+  name: http-apps
   labels:
     feature: http
   # annotations:
@@ -20,7 +20,7 @@ spec:
       prune: true
       selfHeal: true
     syncOptions:
-      - CreateNamespace=true
+      - CreateNamespace=false
       - ApplyOutOfSyncOnly=true
       - PrunePropagationPolicy=background
     retry:
