@@ -150,6 +150,12 @@ kubectl port-forward svc/grafana 3000 -n dashboards
 ```bash
 # Deploy
 kubectl apply -f 100_gitops/8_apps.yaml
+
+# Check pods
+watch 'kubectl get pods -n apps'
+
+# Check logs
+kubectl logs -l app=standalone -f -n apps
 ```
 
 ### 2. gRPC applications
@@ -162,6 +168,13 @@ open 100_gitops/8_apps/kustomization.yaml
 
 # Deploy
 kubectl apply -f 100_gitops/8_apps.yaml
+
+# Check pods
+watch 'kubectl get pods -n apps'
+
+# Check logs
+kubectl logs -l app=grpc-server -f -n apps
+kubectl logs -l app=grpc-client -f -n apps
 ```
 
 ### 3. HTTP applications
@@ -174,6 +187,13 @@ open 100_gitops/8_apps/kustomization.yaml
 
 # Deploy
 kubectl apply -f 100_gitops/8_apps.yaml
+
+# Check pods
+watch 'kubectl get pods -n apps'
+
+# Check logs
+kubectl logs -l app=http-server -f -n apps
+kubectl logs -l app=http-client -f -n apps
 ```
 
 ### 4. Broker applications
@@ -186,4 +206,11 @@ open 100_gitops/8_apps/kustomization.yaml
 
 # Deploy
 kubectl apply -f 100_gitops/8_apps.yaml
+
+# Check pods
+watch 'kubectl get pods -n apps'
+
+# Check logs
+kubectl logs -l app=kafka-producer -f -n apps
+kubectl logs -l app=kafka-consumer -f -n apps
 ```
