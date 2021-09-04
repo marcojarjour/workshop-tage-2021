@@ -18,17 +18,19 @@
 - [ ] introduce gitops `WIP`
 	- [ ] argocd
 	- [ ] argocd apps
-	- [ ] kustomize in all folders
+	- [x] kustomize in all folders
 
-- [ ] fix postgresql grafana dashboard
+- [ ] fix all grafana dashboard
+	- [ ] postgresql
+	- [ ] others?
 
-### Best effort
-
-- [ ] create simple dashboards for custom apps
+- [ ] create dashboard for all custom apps
 	- [ ] standadlone
 	- [ ] http
 	- [ ] grpc
 	- [ ] kafka
+
+### Best effort
 
 - [ ] upgrades
 	- [ ] prometheus
@@ -40,6 +42,8 @@
 	- [ ] jaeger
 	- [ ] strimzi
 
+---
+
 ## Applications
 
 - [x] fix kafka apps
@@ -48,12 +52,10 @@
 
 - [x] test kafka apps
 
-### Best effort
+- [x] enable metrics on standalone app
 
-- [ ] enable metrics on standalone app
+- [x] migrate to go 1.17
 
-- [ ] check kubernetes probes
-	- [ ] standadlone
-	- [ ] http
-	- [ ] grpc
-	- [ ] kafka
+- [x] introduce custom metrics
+
+- [x] update env-vars
