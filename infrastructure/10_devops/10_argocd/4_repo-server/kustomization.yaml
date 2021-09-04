@@ -6,7 +6,6 @@ namespace: argocd
 resources:
   - deployment.yaml
   - service.yaml
-  - networkpolicy.yaml
 
 commonLabels:
   component: repo-server

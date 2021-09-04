@@ -7,7 +7,6 @@ resources:
   - rbac.yaml
   - deployment.yaml
   - service.yaml
-  - networkpolicy.yaml
 
 commonLabels:
   component: redis

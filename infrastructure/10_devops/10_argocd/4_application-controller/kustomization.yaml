@@ -6,7 +6,6 @@ namespace: argocd
 resources:
   - rbac.yaml
   - statefulset.yaml
-  - networkpolicy.yaml
 
 commonLabels:
   component: application-controller

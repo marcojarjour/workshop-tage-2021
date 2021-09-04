@@ -6,8 +6,3 @@ metadata:
     app.kubernetes.io/name: argocd-rbac-cm
 data:
   policy.default: role:readonly
-  # policy.csv: |
-  #   p, andy, applications, sync, */*, allow
-  #   p, adam, applications, sync, */*, allow
-  #   p, joerg, applications, sync, */*, allow
-  #   p, paolo, applications, sync, */*, allow
