@@ -47,7 +47,7 @@ kubectl apply -f 100_gitops/1_namespaces.yaml
 # Check in ArgoCD UI
 
 # Check namespaces
-watch 'kubectl get namespaces'
+kubectl get namespaces
 ```
 
 ### 4. Monitoring
@@ -194,6 +194,11 @@ watch 'kubectl get pods -n apps'
 # Check logs
 kubectl logs -l app=http-server -f -n apps
 kubectl logs -l app=http-client -f -n apps
+
+# Port forward
+kubectl port-forward svc/http-client 8080 -n apps
+
+# Now MANUAL make some requests using Postman
 ```
 
 ### 4. Broker applications
