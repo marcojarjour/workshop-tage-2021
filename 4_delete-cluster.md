@@ -1,16 +1,10 @@
 
 # Delete Kubernetes cluster
 
-`WORK IN PROGRESS`
-
-## GCP
-
-`TODO`
-
 ## CIVO
 
 ```bash
-# Set region for civo-cli
+# Set region
 civo region current LON1
 
 # Delete cluster
@@ -22,6 +16,20 @@ Removing Kubernetes cluster wt21
 civo kubernetes show wt21
 # Expected output
 No Kubernetes clusters found for 'wt21'. Please check your query.
+```
+
+## GCP
+
+```bash
+# Set project
+export PROJECT_ID=...
+gcloud config set project $PROJECT_ID
+
+# Delete cluster
+gcloud beta container --project "$PROJECT_ID" clusters delete "wt21" --zone "europe-west4-a"
+
+# Check
+gcloud container clusters list
 ```
 
 ## LOCAL (MINIKUBE)
