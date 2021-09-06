@@ -3,7 +3,17 @@ package utils
 import (
 	"os"
 	"strconv"
+	"strings"
+
+	"github.com/bygui86/go-traces/grpc-client/commons"
 )
+
+func GetStringArrayEnv(key string, fallback []string) []string {
+	if value, ok := os.LookupEnv(key); ok {
+		return strings.Split(value, commons.ListSeparator)
+	}
+	return fallback
+}
 
 func GetStringEnv(key, fallback string) string {
 	if value, ok := os.LookupEnv(key); ok {

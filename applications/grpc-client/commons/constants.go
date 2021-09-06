@@ -9,4 +9,6 @@ const (
 	HttpServerWriteTimeoutDefault = time.Second * 15
 	HttpServerReadTimeoutDefault  = time.Second * 15
 	HttpServerIdelTimeoutDefault  = time.Second * 60
+
+	ListSeparator = ","
 )
