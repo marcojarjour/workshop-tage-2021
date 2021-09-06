@@ -207,12 +207,15 @@ spec:
               name: grafana-dashboard-postgresql
 
             ### services
-            - mountPath: /etc/dashboards/services/go-services.json
-              subPath: go-services.json
-              name: grafana-dashboard-go-services
+            - mountPath: /etc/dashboards/services/custom-apps.json
+              subPath: custom-apps.json
+              name: grafana-dashboard-custom-apps
             - mountPath: /etc/dashboards/services/global-status.json
               subPath: global-status.json
               name: grafana-dashboard-global-status
+            - mountPath: /etc/dashboards/services/go-services.json
+              subPath: go-services.json
+              name: grafana-dashboard-go-services
 
       volumes:
         # storage
@@ -366,8 +369,11 @@ spec:
 
         ### services
         - configMap:
-            name: grafana-dashboard-go-services
-          name: grafana-dashboard-go-services
+            name: grafana-dashboard-custom-apps
+          name: grafana-dashboard-custom-apps
         - configMap:
             name: grafana-dashboard-global-status
           name: grafana-dashboard-global-status
+        - configMap:
+            name: grafana-dashboard-go-services
+          name: grafana-dashboard-go-services

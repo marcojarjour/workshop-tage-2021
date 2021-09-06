@@ -1,0 +1,2087 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: custom-apps
+data:
+  custom-apps.json: |-
+    {
+      "annotations": {
+        "list": [
+          {
+            "builtIn": 1,
+            "datasource": "-- Grafana --",
+            "enable": true,
+            "hide": true,
+            "iconColor": "rgba(0, 211, 255, 1)",
+            "name": "Annotations & Alerts",
+            "type": "dashboard"
+          }
+        ]
+      },
+      "editable": true,
+      "gnetId": null,
+      "graphTooltip": 2,
+      "id": 48,
+      "links": [],
+      "panels": [
+        {
+          "collapsed": true,
+          "datasource": null,
+          "gridPos": {
+            "h": 1,
+            "w": 24,
+            "x": 0,
+            "y": 0
+          },
+          "id": 4,
+          "panels": [
+            {
+              "datasource": null,
+              "fieldConfig": {
+                "defaults": {
+                  "color": {
+                    "mode": "palette-classic"
+                  },
+                  "custom": {
+                    "axisLabel": "",
+                    "axisPlacement": "auto",
+                    "barAlignment": 0,
+                    "drawStyle": "line",
+                    "fillOpacity": 35,
+                    "gradientMode": "opacity",
+                    "hideFrom": {
+                      "graph": false,
+                      "legend": false,
+                      "tooltip": false
+                    },
+                    "lineInterpolation": "smooth",
+                    "lineStyle": {
+                      "fill": "solid"
+                    },
+                    "lineWidth": 2,
+                    "pointSize": 5,
+                    "scaleDistribution": {
+                      "type": "linear"
+                    },
+                    "showPoints": "never",
+                    "spanNulls": true
+                  },
+                  "mappings": [],
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "color": "green",
+                        "value": null
+                      }
+                    ]
+                  },
+                  "unit": "short"
+                },
+                "overrides": []
+              },
+              "gridPos": {
+                "h": 11,
+                "w": 12,
+                "x": 0,
+                "y": 1
+              },
+              "id": 2,
+              "options": {
+                "graph": {},
+                "legend": {
+                  "calcs": [
+                    "min",
+                    "max",
+                    "mean"
+                  ],
+                  "displayMode": "table",
+                  "placement": "bottom"
+                },
+                "tooltipOptions": {
+                  "mode": "single"
+                }
+              },
+              "pluginVersion": "7.4.5",
+              "targets": [
+                {
+                  "exemplar": false,
+                  "expr": "rate(ops_total{app=\"standalone\"}[1m])",
+                  "instant": false,
+                  "interval": "",
+                  "legendFormat": "{{app}}",
+                  "refId": "A"
+                }
+              ],
+              "title": "Ops",
+              "transparent": true,
+              "type": "timeseries"
+            }
+          ],
+          "title": "Standalone app",
+          "type": "row"
+        },
+        {
+          "collapsed": true,
+          "datasource": null,
+          "gridPos": {
+            "h": 1,
+            "w": 24,
+            "x": 0,
+            "y": 1
+          },
+          "id": 6,
+          "panels": [
+            {
+              "datasource": null,
+              "fieldConfig": {
+                "defaults": {
+                  "color": {
+                    "mode": "palette-classic"
+                  },
+                  "custom": {
+                    "axisLabel": "",
+                    "axisPlacement": "auto",
+                    "barAlignment": 0,
+                    "drawStyle": "line",
+                    "fillOpacity": 35,
+                    "gradientMode": "opacity",
+                    "hideFrom": {
+                      "graph": false,
+                      "legend": false,
+                      "tooltip": false
+                    },
+                    "lineInterpolation": "smooth",
+                    "lineStyle": {
+                      "fill": "solid"
+                    },
+                    "lineWidth": 2,
+                    "pointSize": 5,
+                    "scaleDistribution": {
+                      "type": "linear"
+                    },
+                    "showPoints": "never",
+                    "spanNulls": true
+                  },
+                  "mappings": [],
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "color": "green",
+                        "value": null
+                      }
+                    ]
+                  },
+                  "unit": "short"
+                },
+                "overrides": [
+                  {
+                    "matcher": {
+                      "id": "byName",
+                      "options": "grpc-client"
+                    },
+                    "properties": [
+                      {
+                        "id": "color",
+                        "value": {
+                          "fixedColor": "light-green",
+                          "mode": "fixed"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              "gridPos": {
+                "h": 11,
+                "w": 12,
+                "x": 0,
+                "y": 2
+              },
+              "id": 11,
+              "options": {
+                "graph": {},
+                "legend": {
+                  "calcs": [
+                    "min",
+                    "max",
+                    "mean"
+                  ],
+                  "displayMode": "table",
+                  "placement": "bottom"
+                },
+                "tooltipOptions": {
+                  "mode": "single"
+                }
+              },
+              "pluginVersion": "7.4.5",
+              "targets": [
+                {
+                  "exemplar": false,
+                  "expr": "rate(ops_total{app=\"grpc-client\"}[1m])",
+                  "instant": false,
+                  "interval": "",
+                  "legendFormat": "{{app}}",
+                  "refId": "A"
+                }
+              ],
+              "title": "Ops",
+              "transparent": true,
+              "type": "timeseries"
+            },
+            {
+              "datasource": null,
+              "fieldConfig": {
+                "defaults": {
+                  "color": {
+                    "mode": "palette-classic"
+                  },
+                  "custom": {
+                    "axisLabel": "",
+                    "axisPlacement": "auto",
+                    "barAlignment": 0,
+                    "drawStyle": "line",
+                    "fillOpacity": 35,
+                    "gradientMode": "opacity",
+                    "hideFrom": {
+                      "graph": false,
+                      "legend": false,
+                      "tooltip": false
+                    },
+                    "lineInterpolation": "smooth",
+                    "lineStyle": {
+                      "fill": "solid"
+                    },
+                    "lineWidth": 2,
+                    "pointSize": 5,
+                    "scaleDistribution": {
+                      "type": "linear"
+                    },
+                    "showPoints": "never",
+                    "spanNulls": true
+                  },
+                  "mappings": [],
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "color": "green",
+                        "value": null
+                      }
+                    ]
+                  },
+                  "unit": "short"
+                },
+                "overrides": [
+                  {
+                    "matcher": {
+                      "id": "byName",
+                      "options": "grpc-server"
+                    },
+                    "properties": [
+                      {
+                        "id": "color",
+                        "value": {
+                          "fixedColor": "dark-green",
+                          "mode": "fixed"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              "gridPos": {
+                "h": 11,
+                "w": 12,
+                "x": 12,
+                "y": 2
+              },
+              "id": 12,
+              "options": {
+                "graph": {},
+                "legend": {
+                  "calcs": [
+                    "min",
+                    "max",
+                    "mean"
+                  ],
+                  "displayMode": "table",
+                  "placement": "bottom"
+                },
+                "tooltipOptions": {
+                  "mode": "single"
+                }
+              },
+              "pluginVersion": "7.4.5",
+              "targets": [
+                {
+                  "exemplar": false,
+                  "expr": "rate(ops_total{app=\"grpc-server\"}[1m])",
+                  "instant": false,
+                  "interval": "",
+                  "legendFormat": "{{app}}",
+                  "refId": "A"
+                }
+              ],
+              "title": "Ops",
+              "transparent": true,
+              "type": "timeseries"
+            },
+            {
+              "datasource": null,
+              "fieldConfig": {
+                "defaults": {
+                  "color": {
+                    "mode": "palette-classic"
+                  },
+                  "custom": {
+                    "axisLabel": "",
+                    "axisPlacement": "auto",
+                    "barAlignment": 0,
+                    "drawStyle": "line",
+                    "fillOpacity": 35,
+                    "gradientMode": "opacity",
+                    "hideFrom": {
+                      "graph": false,
+                      "legend": false,
+                      "tooltip": false
+                    },
+                    "lineInterpolation": "smooth",
+                    "lineStyle": {
+                      "fill": "solid"
+                    },
+                    "lineWidth": 2,
+                    "pointSize": 5,
+                    "scaleDistribution": {
+                      "type": "linear"
+                    },
+                    "showPoints": "never",
+                    "spanNulls": true
+                  },
+                  "mappings": [],
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "color": "green",
+                        "value": null
+                      }
+                    ]
+                  },
+                  "unit": "short"
+                },
+                "overrides": [
+                  {
+                    "matcher": {
+                      "id": "byName",
+                      "options": "grpc-client"
+                    },
+                    "properties": [
+                      {
+                        "id": "color",
+                        "value": {
+                          "fixedColor": "light-blue",
+                          "mode": "fixed"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              "gridPos": {
+                "h": 11,
+                "w": 12,
+                "x": 0,
+                "y": 13
+              },
+              "id": 13,
+              "options": {
+                "graph": {},
+                "legend": {
+                  "calcs": [
+                    "min",
+                    "max",
+                    "mean"
+                  ],
+                  "displayMode": "table",
+                  "placement": "bottom"
+                },
+                "tooltipOptions": {
+                  "mode": "single"
+                }
+              },
+              "pluginVersion": "7.4.5",
+              "targets": [
+                {
+                  "exemplar": false,
+                  "expr": "sum(rate(greetings_total{app=\"grpc-client\"}[1m]))",
+                  "instant": false,
+                  "interval": "",
+                  "legendFormat": "grpc-client",
+                  "refId": "A"
+                }
+              ],
+              "title": "Greetings",
+              "transparent": true,
+              "type": "timeseries"
+            },
+            {
+              "datasource": null,
+              "fieldConfig": {
+                "defaults": {
+                  "color": {
+                    "mode": "palette-classic"
+                  },
+                  "custom": {
+                    "axisLabel": "",
+                    "axisPlacement": "auto",
+                    "barAlignment": 0,
+                    "drawStyle": "line",
+                    "fillOpacity": 35,
+                    "gradientMode": "opacity",
+                    "hideFrom": {
+                      "graph": false,
+                      "legend": false,
+                      "tooltip": false
+                    },
+                    "lineInterpolation": "smooth",
+                    "lineStyle": {
+                      "fill": "solid"
+                    },
+                    "lineWidth": 2,
+                    "pointSize": 5,
+                    "scaleDistribution": {
+                      "type": "linear"
+                    },
+                    "showPoints": "never",
+                    "spanNulls": true
+                  },
+                  "mappings": [],
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "color": "green",
+                        "value": null
+                      }
+                    ]
+                  },
+                  "unit": "short"
+                },
+                "overrides": [
+                  {
+                    "matcher": {
+                      "id": "byName",
+                      "options": "grpc-server"
+                    },
+                    "properties": [
+                      {
+                        "id": "color",
+                        "value": {
+                          "fixedColor": "dark-blue",
+                          "mode": "fixed"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              "gridPos": {
+                "h": 11,
+                "w": 12,
+                "x": 12,
+                "y": 13
+              },
+              "id": 14,
+              "options": {
+                "graph": {},
+                "legend": {
+                  "calcs": [
+                    "min",
+                    "max",
+                    "mean"
+                  ],
+                  "displayMode": "table",
+                  "placement": "bottom"
+                },
+                "tooltipOptions": {
+                  "mode": "single"
+                }
+              },
+              "pluginVersion": "7.4.5",
+              "targets": [
+                {
+                  "exemplar": false,
+                  "expr": "sum(rate(greetings_total{app=\"grpc-server\"}[1m]))",
+                  "instant": false,
+                  "interval": "",
+                  "legendFormat": "grpc-server",
+                  "refId": "A"
+                }
+              ],
+              "title": "Greetings",
+              "transparent": true,
+              "type": "timeseries"
+            },
+            {
+              "datasource": null,
+              "fieldConfig": {
+                "defaults": {
+                  "color": {
+                    "mode": "palette-classic"
+                  },
+                  "custom": {
+                    "axisLabel": "",
+                    "axisPlacement": "auto",
+                    "barAlignment": 0,
+                    "drawStyle": "line",
+                    "fillOpacity": 35,
+                    "gradientMode": "opacity",
+                    "hideFrom": {
+                      "graph": false,
+                      "legend": false,
+                      "tooltip": false
+                    },
+                    "lineInterpolation": "smooth",
+                    "lineStyle": {
+                      "fill": "solid"
+                    },
+                    "lineWidth": 2,
+                    "pointSize": 5,
+                    "scaleDistribution": {
+                      "type": "linear"
+                    },
+                    "showPoints": "never",
+                    "spanNulls": true
+                  },
+                  "mappings": [],
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "color": "green",
+                        "value": null
+                      }
+                    ]
+                  },
+                  "unit": "short"
+                },
+                "overrides": [
+                  {
+                    "matcher": {
+                      "id": "byName",
+                      "options": "grpc-client / WorkshopTage21"
+                    },
+                    "properties": [
+                      {
+                        "id": "color",
+                        "value": {
+                          "fixedColor": "light-yellow",
+                          "mode": "fixed"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              "gridPos": {
+                "h": 11,
+                "w": 12,
+                "x": 0,
+                "y": 24
+              },
+              "id": 15,
+              "options": {
+                "graph": {},
+                "legend": {
+                  "calcs": [
+                    "min",
+                    "max",
+                    "mean"
+                  ],
+                  "displayMode": "table",
+                  "placement": "bottom"
+                },
+                "tooltipOptions": {
+                  "mode": "single"
+                }
+              },
+              "pluginVersion": "7.4.5",
+              "targets": [
+                {
+                  "exemplar": false,
+                  "expr": "rate(greetings_total{app=\"grpc-client\"}[1m])",
+                  "instant": false,
+                  "interval": "",
+                  "legendFormat": "{{app}} / {{name}}",
+                  "refId": "A"
+                }
+              ],
+              "title": "Greetings by name",
+              "transparent": true,
+              "type": "timeseries"
+            },
+            {
+              "datasource": null,
+              "fieldConfig": {
+                "defaults": {
+                  "color": {
+                    "mode": "palette-classic"
+                  },
+                  "custom": {
+                    "axisLabel": "",
+                    "axisPlacement": "auto",
+                    "barAlignment": 0,
+                    "drawStyle": "line",
+                    "fillOpacity": 35,
+                    "gradientMode": "opacity",
+                    "hideFrom": {
+                      "graph": false,
+                      "legend": false,
+                      "tooltip": false
+                    },
+                    "lineInterpolation": "smooth",
+                    "lineStyle": {
+                      "fill": "solid"
+                    },
+                    "lineWidth": 2,
+                    "pointSize": 5,
+                    "scaleDistribution": {
+                      "type": "linear"
+                    },
+                    "showPoints": "never",
+                    "spanNulls": true
+                  },
+                  "mappings": [],
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "color": "green",
+                        "value": null
+                      }
+                    ]
+                  },
+                  "unit": "short"
+                },
+                "overrides": [
+                  {
+                    "matcher": {
+                      "id": "byName",
+                      "options": "grpc-server / WorkshopTage21"
+                    },
+                    "properties": [
+                      {
+                        "id": "color",
+                        "value": {
+                          "fixedColor": "dark-yellow",
+                          "mode": "fixed"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              "gridPos": {
+                "h": 11,
+                "w": 12,
+                "x": 12,
+                "y": 24
+              },
+              "id": 16,
+              "options": {
+                "graph": {},
+                "legend": {
+                  "calcs": [
+                    "min",
+                    "max",
+                    "mean"
+                  ],
+                  "displayMode": "table",
+                  "placement": "bottom"
+                },
+                "tooltipOptions": {
+                  "mode": "single"
+                }
+              },
+              "pluginVersion": "7.4.5",
+              "targets": [
+                {
+                  "exemplar": false,
+                  "expr": "rate(greetings_total{app=\"grpc-server\"}[1m])",
+                  "instant": false,
+                  "interval": "",
+                  "legendFormat": "{{app}} / {{name}}",
+                  "refId": "A"
+                }
+              ],
+              "title": "Greetings by name",
+              "transparent": true,
+              "type": "timeseries"
+            }
+          ],
+          "title": "gRPC apps",
+          "type": "row"
+        },
+        {
+          "collapsed": true,
+          "datasource": null,
+          "gridPos": {
+            "h": 1,
+            "w": 24,
+            "x": 0,
+            "y": 2
+          },
+          "id": 8,
+          "panels": [
+            {
+              "datasource": null,
+              "fieldConfig": {
+                "defaults": {
+                  "color": {
+                    "mode": "palette-classic"
+                  },
+                  "custom": {
+                    "axisLabel": "",
+                    "axisPlacement": "auto",
+                    "barAlignment": 0,
+                    "drawStyle": "line",
+                    "fillOpacity": 35,
+                    "gradientMode": "opacity",
+                    "hideFrom": {
+                      "graph": false,
+                      "legend": false,
+                      "tooltip": false
+                    },
+                    "lineInterpolation": "smooth",
+                    "lineStyle": {
+                      "fill": "solid"
+                    },
+                    "lineWidth": 2,
+                    "pointSize": 5,
+                    "scaleDistribution": {
+                      "type": "linear"
+                    },
+                    "showPoints": "never",
+                    "spanNulls": true
+                  },
+                  "mappings": [],
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "color": "green",
+                        "value": null
+                      }
+                    ]
+                  },
+                  "unit": "short"
+                },
+                "overrides": [
+                  {
+                    "matcher": {
+                      "id": "byName",
+                      "options": "grpc-client"
+                    },
+                    "properties": [
+                      {
+                        "id": "color",
+                        "value": {
+                          "fixedColor": "light-green",
+                          "mode": "fixed"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "matcher": {
+                      "id": "byName",
+                      "options": "http-client"
+                    },
+                    "properties": [
+                      {
+                        "id": "color",
+                        "value": {
+                          "fixedColor": "light-green",
+                          "mode": "fixed"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              "gridPos": {
+                "h": 11,
+                "w": 12,
+                "x": 0,
+                "y": 3
+              },
+              "id": 17,
+              "options": {
+                "graph": {},
+                "legend": {
+                  "calcs": [
+                    "min",
+                    "max",
+                    "mean"
+                  ],
+                  "displayMode": "table",
+                  "placement": "bottom"
+                },
+                "tooltipOptions": {
+                  "mode": "single"
+                }
+              },
+              "pluginVersion": "7.4.5",
+              "targets": [
+                {
+                  "exemplar": false,
+                  "expr": "rate(ops_total{app=\"http-client\"}[1m])",
+                  "instant": false,
+                  "interval": "",
+                  "legendFormat": "{{app}}",
+                  "refId": "A"
+                }
+              ],
+              "title": "Ops",
+              "transparent": true,
+              "type": "timeseries"
+            },
+            {
+              "datasource": null,
+              "fieldConfig": {
+                "defaults": {
+                  "color": {
+                    "mode": "palette-classic"
+                  },
+                  "custom": {
+                    "axisLabel": "",
+                    "axisPlacement": "auto",
+                    "barAlignment": 0,
+                    "drawStyle": "line",
+                    "fillOpacity": 35,
+                    "gradientMode": "opacity",
+                    "hideFrom": {
+                      "graph": false,
+                      "legend": false,
+                      "tooltip": false
+                    },
+                    "lineInterpolation": "smooth",
+                    "lineStyle": {
+                      "fill": "solid"
+                    },
+                    "lineWidth": 2,
+                    "pointSize": 5,
+                    "scaleDistribution": {
+                      "type": "linear"
+                    },
+                    "showPoints": "never",
+                    "spanNulls": true
+                  },
+                  "mappings": [],
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "color": "green",
+                        "value": null
+                      }
+                    ]
+                  },
+                  "unit": "short"
+                },
+                "overrides": [
+                  {
+                    "matcher": {
+                      "id": "byName",
+                      "options": "grpc-server"
+                    },
+                    "properties": [
+                      {
+                        "id": "color",
+                        "value": {
+                          "fixedColor": "dark-green",
+                          "mode": "fixed"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "matcher": {
+                      "id": "byName",
+                      "options": "http-server"
+                    },
+                    "properties": [
+                      {
+                        "id": "color",
+                        "value": {
+                          "fixedColor": "dark-green",
+                          "mode": "fixed"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              "gridPos": {
+                "h": 11,
+                "w": 12,
+                "x": 12,
+                "y": 3
+              },
+              "id": 18,
+              "options": {
+                "graph": {},
+                "legend": {
+                  "calcs": [
+                    "min",
+                    "max",
+                    "mean"
+                  ],
+                  "displayMode": "table",
+                  "placement": "bottom"
+                },
+                "tooltipOptions": {
+                  "mode": "single"
+                }
+              },
+              "pluginVersion": "7.4.5",
+              "targets": [
+                {
+                  "exemplar": false,
+                  "expr": "rate(ops_total{app=\"http-server\"}[1m])",
+                  "instant": false,
+                  "interval": "",
+                  "legendFormat": "{{app}}",
+                  "refId": "A"
+                }
+              ],
+              "title": "Ops",
+              "transparent": true,
+              "type": "timeseries"
+            },
+            {
+              "datasource": null,
+              "fieldConfig": {
+                "defaults": {
+                  "color": {
+                    "mode": "palette-classic"
+                  },
+                  "custom": {
+                    "axisLabel": "",
+                    "axisPlacement": "auto",
+                    "barAlignment": 0,
+                    "drawStyle": "line",
+                    "fillOpacity": 35,
+                    "gradientMode": "opacity",
+                    "hideFrom": {
+                      "graph": false,
+                      "legend": false,
+                      "tooltip": false
+                    },
+                    "lineInterpolation": "smooth",
+                    "lineStyle": {
+                      "fill": "solid"
+                    },
+                    "lineWidth": 2,
+                    "pointSize": 5,
+                    "scaleDistribution": {
+                      "type": "linear"
+                    },
+                    "showPoints": "never",
+                    "spanNulls": true
+                  },
+                  "mappings": [],
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "color": "green",
+                        "value": null
+                      }
+                    ]
+                  },
+                  "unit": "short"
+                },
+                "overrides": [
+                  {
+                    "matcher": {
+                      "id": "byName",
+                      "options": "http-client / createProduct"
+                    },
+                    "properties": [
+                      {
+                        "id": "color",
+                        "value": {
+                          "fixedColor": "light-green",
+                          "mode": "fixed"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "matcher": {
+                      "id": "byName",
+                      "options": "http-client / getProducts"
+                    },
+                    "properties": [
+                      {
+                        "id": "color",
+                        "value": {
+                          "fixedColor": "light-yellow",
+                          "mode": "fixed"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              "gridPos": {
+                "h": 11,
+                "w": 12,
+                "x": 0,
+                "y": 14
+              },
+              "id": 19,
+              "options": {
+                "graph": {},
+                "legend": {
+                  "calcs": [
+                    "min",
+                    "max",
+                    "mean"
+                  ],
+                  "displayMode": "table",
+                  "placement": "bottom"
+                },
+                "tooltipOptions": {
+                  "mode": "single"
+                }
+              },
+              "pluginVersion": "7.4.5",
+              "targets": [
+                {
+                  "exemplar": false,
+                  "expr": "rate(http_requests_total{app=\"http-client\"}[1m])",
+                  "instant": false,
+                  "interval": "",
+                  "legendFormat": "{{app}} / {{method}}",
+                  "refId": "A"
+                }
+              ],
+              "title": "Requests by method",
+              "transparent": true,
+              "type": "timeseries"
+            },
+            {
+              "datasource": null,
+              "fieldConfig": {
+                "defaults": {
+                  "color": {
+                    "mode": "palette-classic"
+                  },
+                  "custom": {
+                    "axisLabel": "",
+                    "axisPlacement": "auto",
+                    "barAlignment": 0,
+                    "drawStyle": "line",
+                    "fillOpacity": 35,
+                    "gradientMode": "opacity",
+                    "hideFrom": {
+                      "graph": false,
+                      "legend": false,
+                      "tooltip": false
+                    },
+                    "lineInterpolation": "smooth",
+                    "lineStyle": {
+                      "fill": "solid"
+                    },
+                    "lineWidth": 2,
+                    "pointSize": 5,
+                    "scaleDistribution": {
+                      "type": "linear"
+                    },
+                    "showPoints": "never",
+                    "spanNulls": true
+                  },
+                  "mappings": [],
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "color": "green",
+                        "value": null
+                      }
+                    ]
+                  },
+                  "unit": "short"
+                },
+                "overrides": [
+                  {
+                    "matcher": {
+                      "id": "byName",
+                      "options": "http-server / createProduct"
+                    },
+                    "properties": [
+                      {
+                        "id": "color",
+                        "value": {
+                          "fixedColor": "dark-green",
+                          "mode": "fixed"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "matcher": {
+                      "id": "byName",
+                      "options": "http-server / getProducts"
+                    },
+                    "properties": [
+                      {
+                        "id": "color",
+                        "value": {
+                          "fixedColor": "dark-yellow",
+                          "mode": "fixed"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              "gridPos": {
+                "h": 11,
+                "w": 12,
+                "x": 12,
+                "y": 14
+              },
+              "id": 20,
+              "options": {
+                "graph": {},
+                "legend": {
+                  "calcs": [
+                    "min",
+                    "max",
+                    "mean"
+                  ],
+                  "displayMode": "table",
+                  "placement": "bottom"
+                },
+                "tooltipOptions": {
+                  "mode": "single"
+                }
+              },
+              "pluginVersion": "7.4.5",
+              "targets": [
+                {
+                  "exemplar": false,
+                  "expr": "rate(http_requests_total{app=\"http-server\"}[1m])",
+                  "instant": false,
+                  "interval": "",
+                  "legendFormat": "{{app}} / {{method}}",
+                  "refId": "A"
+                }
+              ],
+              "title": "Requests by method",
+              "transparent": true,
+              "type": "timeseries"
+            },
+            {
+              "cards": {
+                "cardPadding": null,
+                "cardRound": null
+              },
+              "color": {
+                "cardColor": "#b4ff00",
+                "colorScale": "sqrt",
+                "colorScheme": "interpolateBuGn",
+                "exponent": 0.5,
+                "mode": "spectrum"
+              },
+              "dataFormat": "timeseries",
+              "datasource": null,
+              "fieldConfig": {
+                "defaults": {
+                  "color": {},
+                  "custom": {},
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": []
+                  }
+                },
+                "overrides": []
+              },
+              "gridPos": {
+                "h": 11,
+                "w": 12,
+                "x": 0,
+                "y": 25
+              },
+              "heatmap": {},
+              "hideZeroBuckets": false,
+              "highlightCards": true,
+              "id": 22,
+              "legend": {
+                "show": false
+              },
+              "pluginVersion": "7.4.5",
+              "reverseYBuckets": false,
+              "targets": [
+                {
+                  "expr": "http_requests_execution_time_milliseconds_bucket{app=\"http-client\",method=\"getProducts\"}",
+                  "format": "heatmap",
+                  "interval": "",
+                  "legendFormat": "",
+                  "refId": "A"
+                }
+              ],
+              "title": "[http-client / getProducts] Histogram over time",
+              "tooltip": {
+                "show": true,
+                "showHistogram": false
+              },
+              "transparent": true,
+              "type": "heatmap",
+              "xAxis": {
+                "show": true
+              },
+              "xBucketNumber": null,
+              "xBucketSize": null,
+              "yAxis": {
+                "decimals": null,
+                "format": "ms",
+                "logBase": 1,
+                "max": null,
+                "min": null,
+                "show": true,
+                "splitFactor": null
+              },
+              "yBucketBound": "auto",
+              "yBucketNumber": null,
+              "yBucketSize": null
+            },
+            {
+              "cards": {
+                "cardPadding": null,
+                "cardRound": null
+              },
+              "color": {
+                "cardColor": "#b4ff00",
+                "colorScale": "sqrt",
+                "colorScheme": "interpolateGnBu",
+                "exponent": 0.5,
+                "mode": "spectrum"
+              },
+              "dataFormat": "timeseries",
+              "datasource": null,
+              "fieldConfig": {
+                "defaults": {
+                  "color": {},
+                  "custom": {},
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": []
+                  }
+                },
+                "overrides": []
+              },
+              "gridPos": {
+                "h": 11,
+                "w": 12,
+                "x": 12,
+                "y": 25
+              },
+              "heatmap": {},
+              "hideZeroBuckets": false,
+              "highlightCards": true,
+              "id": 23,
+              "legend": {
+                "show": false
+              },
+              "pluginVersion": "7.4.5",
+              "reverseYBuckets": false,
+              "targets": [
+                {
+                  "expr": "http_requests_execution_time_milliseconds_bucket{app=\"http-server\",method=\"getProducts\"}",
+                  "format": "heatmap",
+                  "interval": "",
+                  "legendFormat": "",
+                  "refId": "A"
+                }
+              ],
+              "title": "[http-server / getProducts] Histogram over time",
+              "tooltip": {
+                "show": true,
+                "showHistogram": false
+              },
+              "transparent": true,
+              "type": "heatmap",
+              "xAxis": {
+                "show": true
+              },
+              "xBucketNumber": null,
+              "xBucketSize": null,
+              "yAxis": {
+                "decimals": null,
+                "format": "ms",
+                "logBase": 1,
+                "max": null,
+                "min": null,
+                "show": true,
+                "splitFactor": null
+              },
+              "yBucketBound": "auto",
+              "yBucketNumber": null,
+              "yBucketSize": null
+            },
+            {
+              "datasource": null,
+              "fieldConfig": {
+                "defaults": {
+                  "color": {
+                    "mode": "thresholds"
+                  },
+                  "custom": {},
+                  "mappings": [],
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "color": "dark-green",
+                        "value": null
+                      },
+                      {
+                        "color": "dark-yellow",
+                        "value": 100
+                      },
+                      {
+                        "color": "dark-red",
+                        "value": 250
+                      }
+                    ]
+                  }
+                },
+                "overrides": []
+              },
+              "gridPos": {
+                "h": 11,
+                "w": 24,
+                "x": 0,
+                "y": 36
+              },
+              "id": 26,
+              "options": {
+                "displayMode": "gradient",
+                "orientation": "vertical",
+                "reduceOptions": {
+                  "calcs": [
+                    "lastNotNull"
+                  ],
+                  "fields": "",
+                  "values": false
+                },
+                "showUnfilled": true,
+                "text": {}
+              },
+              "pluginVersion": "7.4.5",
+              "targets": [
+                {
+                  "expr": "http_requests_execution_time_milliseconds_bucket{app=\"http-client\",method=\"getProducts\"}",
+                  "format": "heatmap",
+                  "interval": "",
+                  "legendFormat": "{{le}}",
+                  "refId": "A"
+                }
+              ],
+              "title": "[http-client / getProducts] Histogram",
+              "transparent": true,
+              "type": "bargauge"
+            },
+            {
+              "datasource": null,
+              "fieldConfig": {
+                "defaults": {
+                  "color": {
+                    "mode": "thresholds"
+                  },
+                  "custom": {},
+                  "mappings": [],
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "color": "dark-blue",
+                        "value": null
+                      },
+                      {
+                        "color": "dark-orange",
+                        "value": 100
+                      },
+                      {
+                        "color": "dark-purple",
+                        "value": 250
+                      }
+                    ]
+                  }
+                },
+                "overrides": []
+              },
+              "gridPos": {
+                "h": 11,
+                "w": 24,
+                "x": 0,
+                "y": 47
+              },
+              "id": 27,
+              "options": {
+                "displayMode": "gradient",
+                "orientation": "auto",
+                "reduceOptions": {
+                  "calcs": [
+                    "lastNotNull"
+                  ],
+                  "fields": "",
+                  "values": false
+                },
+                "showUnfilled": true,
+                "text": {}
+              },
+              "pluginVersion": "7.4.5",
+              "targets": [
+                {
+                  "expr": "http_requests_execution_time_milliseconds_bucket{app=\"http-server\",method=\"getProducts\"}",
+                  "format": "heatmap",
+                  "interval": "",
+                  "legendFormat": "{{le}}",
+                  "refId": "A"
+                }
+              ],
+              "title": "[http-server / getProducts] Histogram",
+              "transparent": true,
+              "type": "bargauge"
+            }
+          ],
+          "title": "HTTP apps",
+          "type": "row"
+        },
+        {
+          "collapsed": true,
+          "datasource": null,
+          "gridPos": {
+            "h": 1,
+            "w": 24,
+            "x": 0,
+            "y": 3
+          },
+          "id": 10,
+          "panels": [
+            {
+              "datasource": null,
+              "fieldConfig": {
+                "defaults": {
+                  "color": {
+                    "mode": "palette-classic"
+                  },
+                  "custom": {
+                    "axisLabel": "",
+                    "axisPlacement": "auto",
+                    "barAlignment": 0,
+                    "drawStyle": "line",
+                    "fillOpacity": 35,
+                    "gradientMode": "opacity",
+                    "hideFrom": {
+                      "graph": false,
+                      "legend": false,
+                      "tooltip": false
+                    },
+                    "lineInterpolation": "smooth",
+                    "lineStyle": {
+                      "fill": "solid"
+                    },
+                    "lineWidth": 2,
+                    "pointSize": 5,
+                    "scaleDistribution": {
+                      "type": "linear"
+                    },
+                    "showPoints": "never",
+                    "spanNulls": true
+                  },
+                  "mappings": [],
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "color": "green",
+                        "value": null
+                      }
+                    ]
+                  },
+                  "unit": "short"
+                },
+                "overrides": [
+                  {
+                    "matcher": {
+                      "id": "byName",
+                      "options": "kafka-producer"
+                    },
+                    "properties": [
+                      {
+                        "id": "color",
+                        "value": {
+                          "fixedColor": "light-green",
+                          "mode": "fixed"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              "gridPos": {
+                "h": 11,
+                "w": 12,
+                "x": 0,
+                "y": 4
+              },
+              "id": 29,
+              "options": {
+                "graph": {},
+                "legend": {
+                  "calcs": [
+                    "min",
+                    "max",
+                    "mean"
+                  ],
+                  "displayMode": "table",
+                  "placement": "bottom"
+                },
+                "tooltipOptions": {
+                  "mode": "single"
+                }
+              },
+              "pluginVersion": "7.4.5",
+              "targets": [
+                {
+                  "exemplar": false,
+                  "expr": "rate(ops_total{app=\"kafka-producer\"}[1m])",
+                  "instant": false,
+                  "interval": "",
+                  "legendFormat": "{{app}}",
+                  "refId": "A"
+                }
+              ],
+              "title": "Ops",
+              "transparent": true,
+              "type": "timeseries"
+            },
+            {
+              "datasource": null,
+              "fieldConfig": {
+                "defaults": {
+                  "color": {
+                    "mode": "palette-classic"
+                  },
+                  "custom": {
+                    "axisLabel": "",
+                    "axisPlacement": "auto",
+                    "barAlignment": 0,
+                    "drawStyle": "line",
+                    "fillOpacity": 35,
+                    "gradientMode": "opacity",
+                    "hideFrom": {
+                      "graph": false,
+                      "legend": false,
+                      "tooltip": false
+                    },
+                    "lineInterpolation": "smooth",
+                    "lineStyle": {
+                      "fill": "solid"
+                    },
+                    "lineWidth": 2,
+                    "pointSize": 5,
+                    "scaleDistribution": {
+                      "type": "linear"
+                    },
+                    "showPoints": "never",
+                    "spanNulls": true
+                  },
+                  "mappings": [],
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "color": "green",
+                        "value": null
+                      }
+                    ]
+                  },
+                  "unit": "short"
+                },
+                "overrides": [
+                  {
+                    "matcher": {
+                      "id": "byName",
+                      "options": "kafka-consumer"
+                    },
+                    "properties": [
+                      {
+                        "id": "color",
+                        "value": {
+                          "fixedColor": "dark-green",
+                          "mode": "fixed"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              "gridPos": {
+                "h": 11,
+                "w": 12,
+                "x": 12,
+                "y": 4
+              },
+              "id": 28,
+              "options": {
+                "graph": {},
+                "legend": {
+                  "calcs": [
+                    "min",
+                    "max",
+                    "mean"
+                  ],
+                  "displayMode": "table",
+                  "placement": "bottom"
+                },
+                "tooltipOptions": {
+                  "mode": "single"
+                }
+              },
+              "pluginVersion": "7.4.5",
+              "targets": [
+                {
+                  "exemplar": false,
+                  "expr": "rate(ops_total{app=\"kafka-consumer\"}[1m])",
+                  "instant": false,
+                  "interval": "",
+                  "legendFormat": "{{app}}",
+                  "refId": "A"
+                }
+              ],
+              "title": "Ops",
+              "transparent": true,
+              "type": "timeseries"
+            },
+            {
+              "datasource": null,
+              "fieldConfig": {
+                "defaults": {
+                  "color": {
+                    "mode": "palette-classic"
+                  },
+                  "custom": {
+                    "axisLabel": "",
+                    "axisPlacement": "auto",
+                    "barAlignment": 0,
+                    "drawStyle": "line",
+                    "fillOpacity": 35,
+                    "gradientMode": "opacity",
+                    "hideFrom": {
+                      "graph": false,
+                      "legend": false,
+                      "tooltip": false
+                    },
+                    "lineInterpolation": "smooth",
+                    "lineStyle": {
+                      "fill": "solid"
+                    },
+                    "lineWidth": 2,
+                    "pointSize": 5,
+                    "scaleDistribution": {
+                      "type": "linear"
+                    },
+                    "showPoints": "never",
+                    "spanNulls": true
+                  },
+                  "mappings": [],
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "color": "green",
+                        "value": null
+                      }
+                    ]
+                  },
+                  "unit": "short"
+                },
+                "overrides": [
+                  {
+                    "matcher": {
+                      "id": "byName",
+                      "options": "kafka-producer / my-topic / success"
+                    },
+                    "properties": [
+                      {
+                        "id": "color",
+                        "value": {
+                          "fixedColor": "light-green",
+                          "mode": "fixed"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              "gridPos": {
+                "h": 11,
+                "w": 12,
+                "x": 0,
+                "y": 15
+              },
+              "id": 30,
+              "options": {
+                "graph": {},
+                "legend": {
+                  "calcs": [
+                    "min",
+                    "max",
+                    "mean"
+                  ],
+                  "displayMode": "table",
+                  "placement": "bottom"
+                },
+                "tooltipOptions": {
+                  "mode": "single"
+                }
+              },
+              "pluginVersion": "7.4.5",
+              "targets": [
+                {
+                  "exemplar": false,
+                  "expr": "rate(success_published_messages_total{app=\"kafka-producer\"}[1m])",
+                  "instant": false,
+                  "interval": "",
+                  "legendFormat": "{{app}} / {{topic}} / success",
+                  "refId": "A"
+                },
+                {
+                  "expr": "rate(fail_published_messages_total{app=\"kafka-producer\"}[1m])",
+                  "hide": false,
+                  "interval": "",
+                  "legendFormat": "{{app}} / {{topic}} / fail",
+                  "refId": "B"
+                }
+              ],
+              "title": "Messages",
+              "transparent": true,
+              "type": "timeseries"
+            },
+            {
+              "datasource": null,
+              "fieldConfig": {
+                "defaults": {
+                  "color": {
+                    "mode": "palette-classic"
+                  },
+                  "custom": {
+                    "axisLabel": "",
+                    "axisPlacement": "auto",
+                    "barAlignment": 0,
+                    "drawStyle": "line",
+                    "fillOpacity": 35,
+                    "gradientMode": "opacity",
+                    "hideFrom": {
+                      "graph": false,
+                      "legend": false,
+                      "tooltip": false
+                    },
+                    "lineInterpolation": "smooth",
+                    "lineStyle": {
+                      "fill": "solid"
+                    },
+                    "lineWidth": 2,
+                    "pointSize": 5,
+                    "scaleDistribution": {
+                      "type": "linear"
+                    },
+                    "showPoints": "never",
+                    "spanNulls": true
+                  },
+                  "mappings": [],
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "color": "green",
+                        "value": null
+                      }
+                    ]
+                  },
+                  "unit": "short"
+                },
+                "overrides": [
+                  {
+                    "matcher": {
+                      "id": "byName",
+                      "options": "kafka-producer / my-topic / success"
+                    },
+                    "properties": [
+                      {
+                        "id": "color",
+                        "value": {
+                          "fixedColor": "light-green",
+                          "mode": "fixed"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "matcher": {
+                      "id": "byName",
+                      "options": "kafka-consumer / my-topic / success"
+                    },
+                    "properties": [
+                      {
+                        "id": "color",
+                        "value": {
+                          "fixedColor": "dark-green",
+                          "mode": "fixed"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              "gridPos": {
+                "h": 11,
+                "w": 12,
+                "x": 12,
+                "y": 15
+              },
+              "id": 31,
+              "options": {
+                "graph": {},
+                "legend": {
+                  "calcs": [
+                    "min",
+                    "max",
+                    "mean"
+                  ],
+                  "displayMode": "table",
+                  "placement": "bottom"
+                },
+                "tooltipOptions": {
+                  "mode": "single"
+                }
+              },
+              "pluginVersion": "7.4.5",
+              "targets": [
+                {
+                  "exemplar": false,
+                  "expr": "rate(success_consumed_messages_total{app=\"kafka-consumer\"}[1m])",
+                  "instant": false,
+                  "interval": "",
+                  "legendFormat": "{{app}} / {{topic}} / success",
+                  "refId": "A"
+                },
+                {
+                  "expr": "rate(fail_consumed_messages_total{app=\"kafka-consumer\"}[1m])",
+                  "hide": false,
+                  "interval": "",
+                  "legendFormat": "{{app}} / {{topic}} / fail",
+                  "refId": "B"
+                }
+              ],
+              "title": "Messages",
+              "transparent": true,
+              "type": "timeseries"
+            },
+            {
+              "datasource": null,
+              "fieldConfig": {
+                "defaults": {
+                  "color": {
+                    "mode": "palette-classic"
+                  },
+                  "custom": {
+                    "axisLabel": "",
+                    "axisPlacement": "auto",
+                    "barAlignment": 0,
+                    "drawStyle": "line",
+                    "fillOpacity": 35,
+                    "gradientMode": "opacity",
+                    "hideFrom": {
+                      "graph": false,
+                      "legend": false,
+                      "tooltip": false
+                    },
+                    "lineInterpolation": "smooth",
+                    "lineStyle": {
+                      "fill": "solid"
+                    },
+                    "lineWidth": 2,
+                    "pointSize": 5,
+                    "scaleDistribution": {
+                      "type": "linear"
+                    },
+                    "showPoints": "never",
+                    "spanNulls": true
+                  },
+                  "mappings": [],
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "color": "green",
+                        "value": null
+                      }
+                    ]
+                  },
+                  "unit": "short"
+                },
+                "overrides": []
+              },
+              "gridPos": {
+                "h": 11,
+                "w": 12,
+                "x": 0,
+                "y": 26
+              },
+              "id": 32,
+              "options": {
+                "graph": {},
+                "legend": {
+                  "calcs": [
+                    "min",
+                    "max",
+                    "mean"
+                  ],
+                  "displayMode": "table",
+                  "placement": "bottom"
+                },
+                "tooltipOptions": {
+                  "mode": "single"
+                }
+              },
+              "pluginVersion": "7.4.5",
+              "targets": [
+                {
+                  "exemplar": false,
+                  "expr": "rate(failed_tracing_injection_total{app=\"kafka-producer\"}[1m])",
+                  "instant": false,
+                  "interval": "",
+                  "legendFormat": "{{app}} / {{topic}} / fail",
+                  "refId": "A"
+                }
+              ],
+              "title": "Tracing injection",
+              "transparent": true,
+              "type": "timeseries"
+            },
+            {
+              "datasource": null,
+              "fieldConfig": {
+                "defaults": {
+                  "color": {
+                    "mode": "palette-classic"
+                  },
+                  "custom": {
+                    "axisLabel": "",
+                    "axisPlacement": "auto",
+                    "barAlignment": 0,
+                    "drawStyle": "line",
+                    "fillOpacity": 35,
+                    "gradientMode": "opacity",
+                    "hideFrom": {
+                      "graph": false,
+                      "legend": false,
+                      "tooltip": false
+                    },
+                    "lineInterpolation": "smooth",
+                    "lineStyle": {
+                      "fill": "solid"
+                    },
+                    "lineWidth": 2,
+                    "pointSize": 5,
+                    "scaleDistribution": {
+                      "type": "linear"
+                    },
+                    "showPoints": "never",
+                    "spanNulls": true
+                  },
+                  "mappings": [],
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "color": "green",
+                        "value": null
+                      }
+                    ]
+                  },
+                  "unit": "short"
+                },
+                "overrides": []
+              },
+              "gridPos": {
+                "h": 11,
+                "w": 12,
+                "x": 12,
+                "y": 26
+              },
+              "id": 33,
+              "options": {
+                "graph": {},
+                "legend": {
+                  "calcs": [
+                    "min",
+                    "max",
+                    "mean"
+                  ],
+                  "displayMode": "table",
+                  "placement": "bottom"
+                },
+                "tooltipOptions": {
+                  "mode": "single"
+                }
+              },
+              "pluginVersion": "7.4.5",
+              "targets": [
+                {
+                  "exemplar": false,
+                  "expr": "rate(consumer_errors_total{app=\"kafka-consumer\"}[1m])",
+                  "instant": false,
+                  "interval": "",
+                  "legendFormat": "{{app}}",
+                  "refId": "A"
+                }
+              ],
+              "title": "Consume errors",
+              "transparent": true,
+              "type": "timeseries"
+            }
+          ],
+          "title": "Broker apps",
+          "type": "row"
+        }
+      ],
+      "refresh": "10s",
+      "schemaVersion": 27,
+      "style": "dark",
+      "tags": [
+        "apps"
+      ],
+      "templating": {
+        "list": []
+      },
+      "time": {
+        "from": "now-10m",
+        "to": "now"
+      },
+      "timepicker": {},
+      "timezone": "",
+      "title": "Custom apps",
+      "uid": "custom-apps",
+      "version": 14
+    }
