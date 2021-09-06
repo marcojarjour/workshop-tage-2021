@@ -19,6 +19,6 @@ type Client struct {
 type config struct {
 	grpcServerAddress     string
 	grpcConnectionTimeout time.Duration
-	greetingName          string
+	greetingNames         []string
 	greetingInterval      time.Duration
 }

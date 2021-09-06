@@ -22,4 +22,4 @@ data:
 
   # grpc
   GRPC_SERVER_ADDRESS: grpc-server.apps.svc.cluster.local:50051
-  GRPC_GREETING_NAME: WorkshopTage21
+  GRPC_GREETING_NAMES: WorkshopTage21,Marco,Lukas,Bernhard,Martin,Roberto,Cyrille,Daniel

@@ -10,13 +10,16 @@ import (
 const (
 	serverAddressEnvVar     = "GRPC_SERVER_ADDRESS"
 	connectionTimeoutEnvVar = "GRPC_CONNECTION_TIMEOUT" // in seconds
-	greetingNameEnvVar      = "GRPC_GREETING_NAME"
-	greetingIntervalEnvVar  = "GRPC_GREETING_INTERVAL" // in seconds
+	greetingNamesEnvVar     = "GRPC_GREETING_NAMES"     // comma-separated list
+	greetingIntervalEnvVar  = "GRPC_GREETING_INTERVAL"  // in seconds
 
 	serverAddressDefault     = "localhost:50051"
 	connectionTimeoutDefault = 2
-	greetingNameDefault      = "ANONYMOUS"
 	greetingIntervalDefault  = 1
+)
+
+var (
+	greetingNamesDefault = []string{"anonymous"}
 )
 
 func loadConfig() *config {
@@ -25,7 +28,7 @@ func loadConfig() *config {
 	return &config{
 		grpcServerAddress:     utils.GetStringEnv(serverAddressEnvVar, serverAddressDefault),
 		grpcConnectionTimeout: time.Duration(utils.GetIntEnv(connectionTimeoutEnvVar, connectionTimeoutDefault)) * time.Second,
-		greetingName:          utils.GetStringEnv(greetingNameEnvVar, greetingNameDefault),
+		greetingNames:         utils.GetStringArrayEnv(greetingNamesEnvVar, greetingNamesDefault),
 		greetingInterval:      time.Duration(utils.GetIntEnv(greetingIntervalEnvVar, greetingIntervalDefault)) * time.Second,
 	}
 }
