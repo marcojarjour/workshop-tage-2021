@@ -7,7 +7,7 @@ resources:
   - 1_standalone.yaml
   - 2_grpc.yaml
   - 3_http.yaml
-  # - 4_broker.yaml
+  - 4_broker.yaml
 
 commonLabels:
   domain: apps
